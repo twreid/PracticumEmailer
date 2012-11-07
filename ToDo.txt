@@ -1,0 +1,3 @@
+Need to add a way to allow them to edit the html files.
+Use a rich textbox with an edit bar and extract that text as xaml and use the built in xaml to html methods to convert it to html and save.
+It must be converted to html as I don't think that emails can understand xaml markup.

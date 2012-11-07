@@ -1,0 +1,14 @@
+﻿<Window x:Class="PracticumEmailer.EditMessages"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        Title="EditMessages" Height="300" Width="300">
+    <Grid>
+        <RichTextBox HorizontalAlignment="stretch" Margin="3,3,0,0" Name="rtbText" VerticalAlignment="stretch">
+            <xctk:RichTextBoxFormatBarManager.FormatBar>
+                <xctk:RichTextBoxFormatBar />
+            </xctk:RichTextBoxFormatBarManager.FormatBar>
+        </RichTextBox>
+    </Grid>
+</Window>

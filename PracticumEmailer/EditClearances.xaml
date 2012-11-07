@@ -1,0 +1,17 @@
+﻿<Window x:Class="PracticumEmailer.EditClearances"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EditClearances" Height="300" Width="290" Closing="EditClearances_Closing">
+    <Grid>
+        <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Name="dataGrid1" CanUserAddRows="True" AlternatingRowBackground="#AB67A2DE" CanUserDeleteRows="True" CanUserSortColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CourseId" Binding="{Binding CourseId}"/>
+                <DataGridCheckBoxColumn Header="FBI" Binding="{Binding FBI}"/>
+                <DataGridCheckBoxColumn Header="TB" Binding="{Binding TB}"/>
+                <DataGridCheckBoxColumn Header="FCSR" Binding="{Binding FCSR}"/>
+                <DataGridCheckBoxColumn Header="LIAB" Binding="{Binding LIAB}"/>
+                <DataGridCheckBoxColumn Header="IsPracticum" Binding="{Binding IsPracticum}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
