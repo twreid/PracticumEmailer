@@ -12,7 +12,5 @@ namespace PracticumEmailer.Data.Models
         public string FcsrExpiration { get; set; }
         public string FbiExpiration { get; set; }
         public string PliExpiration { get; set; }
-        public string HighwayPatrolCheck { get; set; }
-
-    }
+     }
 }

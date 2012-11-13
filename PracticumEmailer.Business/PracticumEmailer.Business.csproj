@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC8EC1A0-9DD0-444B-A399-DDB1E5986E45}</ProjectGuid>
+    <ProjectGuid>{C2FCA97B-F8D5-49AE-A1A5-7AB3147471C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PracticumEmailer.Data</RootNamespace>
-    <AssemblyName>PracticumEmailer.Data</AssemblyName>
+    <RootNamespace>PracticumEmailer.Business</RootNamespace>
+    <AssemblyName>PracticumEmailer.Business</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,26 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="LinqToExcel">
-      <HintPath>..\packages\LinqToExcel_x64.1.6.3\lib\LinqToExcel.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\LinqToExcel_x64.1.6.3\lib\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Remotion">
-      <HintPath>..\packages\LinqToExcel_x64.1.6.3\lib\Remotion.dll</HintPath>
-    </Reference>
-    <Reference Include="Remotion.Data.Linq">
-      <HintPath>..\packages\LinqToExcel_x64.1.6.3\lib\Remotion.Data.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="Remotion.Interfaces">
-      <HintPath>..\packages\LinqToExcel_x64.1.6.3\lib\Remotion.Interfaces.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,29 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColumnMappings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>ColumnMappings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="CsvExcel\CsvExcelDataAccess.cs" />
-    <Compile Include="DataFactory.cs" />
-    <Compile Include="ICourseManager.cs" />
-    <Compile Include="IDataAccess.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\CourseType.cs" />
-    <Compile Include="Models\StudentCourseInfo.cs" />
+    <Compile Include="BusinessObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Clearances.cs" />
+    <Compile Include="ValidationRules\ValidationRule.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="ColumnMappings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>ColumnMappings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
