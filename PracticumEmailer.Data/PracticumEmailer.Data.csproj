@@ -67,6 +67,7 @@
     <Compile Include="DataFactory.cs" />
     <Compile Include="ICourseManager.cs" />
     <Compile Include="IDataAccess.cs" />
+    <Compile Include="Mapper\Mapper.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseType.cs" />
     <Compile Include="Models\StudentCourseInfo.cs" />
@@ -80,7 +81,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PracticumEmailer.Business\PracticumEmailer.Business.csproj">
+      <Project>{c2fca97b-f8d5-49ae-a1a5-7ab3147471c2}</Project>
+      <Name>PracticumEmailer.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

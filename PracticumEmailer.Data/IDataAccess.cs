@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using PracticumEmailer.Data.Models;
+using PracticumEmailer.Business;
 
 namespace PracticumEmailer.Data
 {
-    public interface IDataAccess
+    public interface IStudentDataAccess
     {
-        IEnumerable<StudentCourseInfo> GetCourseInfo(string file);
+        IEnumerable<Student> GetCourseInfo(string file);
     }
 }

@@ -1,21 +1,26 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using LinqToExcel.Domain;
+using PracticumEmailer.Business;
 using PracticumEmailer.Data.Models;
 using LinqToExcel;
 
 namespace PracticumEmailer.Data.CsvExcel
 {
-    [Export(typeof(IDataAccess))]
-    public class CsvExcelDataAccess : IDataAccess
+    [Export(typeof(IStudentDataAccess))]
+    public class CsvExcelDataAccess : IStudentDataAccess
     {
         private readonly IExcelQueryFactory _factory;
+        private readonly IDictionary<string, Student> _students; 
 
         public CsvExcelDataAccess()
         {
+            _students = new ConcurrentDictionary<string, Student>(Environment.ProcessorCount * 2, 201);
+
             _factory = new ExcelQueryFactory {DatabaseEngine = DatabaseEngine.Ace, StrictMapping = false};
 
             _factory.AddMapping<StudentCourseInfo>(info => info.CourseId, ColumnMappings.Default.CourseId);
@@ -29,11 +34,31 @@ namespace PracticumEmailer.Data.CsvExcel
             _factory.AddMapping<StudentCourseInfo>(info => info.PliExpiration, ColumnMappings.Default.PliExpiration);
          }
 
+        [Import]
+        public Mapper.Mapper Mapper { get; set; }
+
         #region Implementation of IDataAccess
 
-        public IEnumerable<StudentCourseInfo> GetCourseInfo(string file)
+        public IEnumerable<Student> GetCourseInfo(string file)
         {
-            return _factory.Worksheet<StudentCourseInfo>().Select(s => s);
+            var courseInfos = _factory.Worksheet<StudentCourseInfo>().Select(s => s);
+
+            foreach (Student student in courseInfos.Select(studentCourseInfo => Mapper.MapStudentFromDataLayer(studentCourseInfo)))
+            {
+                if(_students.ContainsKey(student.MNumber))
+                {
+                    foreach (string course in student.Courses)
+                    {
+                        _students[student.MNumber].Courses.Add(course);
+                    }
+                }
+                else
+                {
+                    _students[student.MNumber] = student;
+                }
+            }
+
+            return _students.Values.AsEnumerable();
         }
 
         #endregion

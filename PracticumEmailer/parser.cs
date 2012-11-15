@@ -11,7 +11,6 @@ namespace PracticumEmailer
 {
     class Parser
     {
-        private string _file;
         private readonly Dictionary<String, Course> _requirements;
         private readonly DateTime _cutoff;
         private readonly IExcelQueryFactory _excelFactory;
@@ -22,7 +21,6 @@ namespace PracticumEmailer
 
        public Parser(string file, DateTime cutoff, bool? test)
         {
-            _file = file;
             try
             {
                 _excelFactory = new ExcelQueryFactory(file);
@@ -34,7 +32,7 @@ namespace PracticumEmailer
             
            
             _requirements = new Dictionary<String, Course>();
-            this._cutoff = cutoff;
+            _cutoff = cutoff;
             _studentsInfo = new Dictionary<String, Student>();
             _myOutlook = new Outlook.Application();
             _isTest = test;
@@ -43,44 +41,39 @@ namespace PracticumEmailer
 
         public void StartParse()
         {
-            string[] data = new string[9];
 
             foreach (var spreadSheetData in from d in _excelFactory.Worksheet()
-                                            select new
-                                            {
-                                                CourseId = d["Course ID"],
-                                                Name = d["Name"],
-                                                TbExpiration = d["TB Test Exp"],
-                                                FcsrExpiration = d["Liability Insurance Expiration"],
-                                                FbiExpiration = d["FBI_Expiration"],
-                                                Email = d["Email_Address"],
-                                                MNumber = d["M-Number"],
-                                                ProgramDescription = d["Program_Desc"]
-
-                                            })
+                                            select new Student
+                                                {
+                                                    Name = d["Name"],
+                                                    MNumber = d["M-Number"],
+                                                    Email = d["Email_Address"],
+                                                    CourseId = d["Course ID"].ToString().Split(' ')[0],
+                                                    Major = d["Program_Desc"],
+                                                    IsFbiCleared = Cleared(d["FBI_Expiration"]),
+                                                    IsLiabCleared = Cleared(d["Liability Insurance Expiration"]),
+                                                    IsFcsrCleared = Cleared(d["FCSR Expiration Date"]),
+                                                    IsTbCleared = Cleared(d["TB Test Exp"])
+                                                })
             {
                 if (_studentsInfo.ContainsKey(spreadSheetData.MNumber))
+                {
                     _studentsInfo[spreadSheetData.MNumber].Courses.Add(spreadSheetData.CourseId);
+                }
                 else
-                    _studentsInfo.Add(spreadSheetData.MNumber, ProcessLine(data));
+                {
+                    spreadSheetData.Courses.Add(spreadSheetData.CourseId);
+                    _studentsInfo.Add(spreadSheetData.MNumber, spreadSheetData);
+                }
+                    
 
             }
 
-            #region Debugging Code
- /* foreach (KeyValuePair<String, Student> entry in students_info)
-                Console.WriteLine(entry.Value.ToString());
-
-            Console.WriteLine(students_info.Count);
-
-            foreach (var s in students_info.Values)
-                s.prepEmail(false, pracRequire, stuRequire);
-
-            foreach (var s in pracRequire.Keys)
-                Console.WriteLine(s.ToString());*/
- #endregion
-
             foreach (var s in _studentsInfo.Values)
+            {
                 s.PrepData(_requirements);
+            }
+                
 
             int count = 0;
             
@@ -93,34 +86,18 @@ namespace PracticumEmailer
                         break;
                 }
                 else
+                {
                     s.DisplayMail(false);
-                //ThreadPool.QueueUserWorkItem(new WaitCallback(s.sendEmail), myOutlook);
+                }
+                    
+                
                 count += s.SendEmail(_myOutlook);
                 
             }
             MessageBox.Show("Done Sending " + count + " emails!");
         }
 
-       
-
-        private Student ProcessLine(IList<string> line)
-        {
-            Student temp = new Student();
-            temp.Courses.Add(line[0].Split(' ')[0]);
-            temp.Name = line[1];
-            temp.Email = line[6];
-            temp.Major = line[8];
-            //temp.mNum = line[7];
-
-            temp.IsFbiCleared = cleared(line[5]);
-            temp.IsFcsrCleared = cleared(line[4]);
-            temp.IsLiabCleared = cleared(line[3]);
-            temp.IsTbCleared = cleared(line[2]);
-
-            return temp;
-        }
-
-        private bool cleared(string data)
+        private bool Cleared(string data)
         {
             if (string.IsNullOrEmpty(data))
                 return false;
@@ -133,7 +110,7 @@ namespace PracticumEmailer
 
                     return t.CompareTo(_cutoff) >= 0;
                 }
-                catch (System.FormatException ex)
+                catch (FormatException ex)
                 {
                     MessageBox.Show(ex.Message, "Invalid Date");
                 }

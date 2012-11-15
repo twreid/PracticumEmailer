@@ -9,7 +9,7 @@ namespace PracticumEmailer.Business
     {
         public Student()
         {
-            Courses = new List<string>();
+            Courses = new HashSet<string>();
         }
 
         public string Name { get; set; }
@@ -17,6 +17,6 @@ namespace PracticumEmailer.Business
         public string ProgramDescription { get; set; }
         public string Email { get; set; }
         public Clearances Clearances { get; set; }
-        public IList<string> Courses { get; private set; } 
+        public ISet<string> Courses { get; private set; } 
     }
 }

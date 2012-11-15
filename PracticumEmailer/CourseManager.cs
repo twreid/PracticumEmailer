@@ -43,15 +43,8 @@ namespace PracticumEmailer
             using (TextReader r = new StreamReader("courses.xml"))
             {
                 List<Course> l = (List<Course>)s.Deserialize(r);
-                Dictionary<string, Course> d = new Dictionary<string, Course>();
 
-                foreach (Course c in l)
-                {
-                    if(!string.IsNullOrEmpty(c.CourseId)
-                        d.Add(c.CourseId, c);
-                }
-
-                return d;
+                return l.Where(c => !string.IsNullOrEmpty(c.CourseId)).ToDictionary(c => c.CourseId);
             }
         }
 
