@@ -42,10 +42,6 @@
     <Reference Include="log4net">
       <HintPath>..\packages\LinqToExcel_x64.1.6.3\lib\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="LumenWorks.Framework.IO, Version=3.8.0.0, Culture=neutral, PublicKeyToken=5ad3ea2f85776344, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CsvReader_src\LumenWorks.Framework.IO\obj\Release\LumenWorks.Framework.IO.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -60,6 +56,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,9 +68,14 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WPFToolkit.Extended, Version=1.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\aj1353\Desktop\WPFToolkit.Extended.dll</HintPath>
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\WPFToolkit.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.1.8.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\TextEditor.xaml.cs">
+      <DependentUpon>TextEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Course.cs" />
     <Compile Include="CourseManager.cs" />
     <Compile Include="EditClearances.xaml.cs">
@@ -89,12 +94,24 @@
     <Compile Include="EditMessages.xaml.cs">
       <DependentUpon>EditMessages.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HtmlCssParser.cs" />
+    <Compile Include="HtmlFromXamlConverter.cs" />
+    <Compile Include="HtmlLexicalAnalyzer.cs" />
+    <Compile Include="HtmlParser.cs" />
+    <Compile Include="HtmlSchema.cs" />
+    <Compile Include="HtmlTokenType.cs" />
+    <Compile Include="HtmlToXamlConverter.cs" />
     <Compile Include="MailPrep.cs" />
     <Compile Include="settings.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="SettingsDialog.xaml.cs">
       <DependentUpon>SettingsDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TextEditorViewModel.cs" />
+    <Page Include="Controls\TextEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditClearances.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
