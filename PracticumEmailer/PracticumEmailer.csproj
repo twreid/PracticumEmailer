@@ -167,6 +167,12 @@
   <ItemGroup>
     <Resource Include="Images\BearHeadonGradientStandard.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SmithHtmlEditor\SmithHtmlEditor\SmithHtmlEditor\SmithHtmlEditor.csproj">
+      <Project>{84badda1-ab3a-4064-b87e-178d7446901d}</Project>
+      <Name>SmithHtmlEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

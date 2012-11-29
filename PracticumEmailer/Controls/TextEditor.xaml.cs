@@ -27,24 +27,31 @@ namespace PracticumEmailer.Controls
             InitializeComponent();
 
             _collectionView = new ObservableCollection<string>(Directory.EnumerateFiles(@".\", "*.html"));
-            editor.Text = HtmlToXamlConverter.ConvertHtmlToXaml(File.ReadAllText(_collectionView[0]), false);
 
             _currentFile = _collectionView[0];
 
             cmbFiles.ItemsSource = _collectionView;
+            cmbFiles.SelectedIndex = 0;
+
+            Editor.DocumentReady += new RoutedEventHandler(OnDocumentReady);
+            btnSave.Click += new RoutedEventHandler(OnSaveClick);
+            cmbFiles.SelectionChanged += OnSelectionChanged;
         }
 
-        private void cmbFiles_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
-            editor.Text = HtmlToXamlConverter.ConvertHtmlToXaml(File.ReadAllText(e.AddedItems[0].ToString()), false);
-
-            _currentFile = e.AddedItems[0].ToString();
+            _currentFile = selectionChangedEventArgs.AddedItems[0].ToString();
+            Editor.ContentHtml = File.ReadAllText(_currentFile);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void OnSaveClick(object sender, RoutedEventArgs e)
         {
-            string html = HtmlFromXamlConverter.ConvertXamlToHtml(editor.Text, false);
-            File.WriteAllText(_currentFile, html);
+            File.WriteAllText(_currentFile, Editor.ContentHtml);
+        }
+
+        private void OnDocumentReady(object sender, RoutedEventArgs routedEventArgs)
+        {
+            Editor.ContentHtml = File.ReadAllText(_currentFile);
         }
     }
 }

@@ -3,20 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ex="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor"
              xmlns:xc="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:PracticumEmailer"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Height="800" Width="800">
+             d:DesignHeight="300" d:DesignWidth="300" Height="800" Width="800" MinHeight="800" MinWidth="800">
     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="800">
         <StackPanel Orientation="Horizontal" Height="60">
-            <xc:RichTextBoxFormatBar Target="{Binding ElementName=editor}"/>
-            <ComboBox x:Name="cmbFiles" SelectionChanged="cmbFiles_SelectionChanged_1" Width="100"/>
-            <Button Content="Save" Click="Button_Click_1"/>
+           <ComboBox x:Name="cmbFiles" Width="100"/>
+            <Button Content="Save" x:Name="btnSave"/>
         </StackPanel>
-        <xc:RichTextBox x:Name="editor" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="800" Width="800">
-            <xc:RichTextBox.TextFormatter>
-                <xc:XamlFormatter/>
-            </xc:RichTextBox.TextFormatter>
-       </xc:RichTextBox>
+        <Border BorderBrush="DarkGray"
+                BorderThickness="2"
+                Padding="8" >
+            <ex:HtmlEditor x:Name="Editor" Height="700" Width="700"/>
+        </Border>
+        
     </StackPanel>
 </UserControl>
