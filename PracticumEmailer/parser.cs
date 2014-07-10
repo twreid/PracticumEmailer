@@ -94,6 +94,7 @@ namespace PracticumEmailer
                 count += s.SendEmail(_myOutlook);
                 
             }
+
             MessageBox.Show("Done Sending " + count + " emails!");
         }
 
