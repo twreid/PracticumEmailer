@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Media.Animation;
 using LinqToExcel;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
@@ -50,7 +51,7 @@ namespace PracticumEmailer
                                                     Email = d["Email_Address"],
                                                     CourseId = d["Course ID"].ToString().Split(' ')[0],
                                                     Major = d["Program_Desc"],
-                                                    IsFbiCleared = Cleared(d["FBI_Expiration"]),
+                                                    IsFbiCleared = IsFbiCleared(d["FBI_DESE"], d["FBI_MOVECHS"], d["FBW_MOVECHS"]),
                                                     IsLiabCleared = Cleared(d["Liability Insurance Expiration"]),
                                                     IsFcsrCleared = Cleared(d["FCSR Expiration Date"]),
                                                     IsTbCleared = Cleared(d["TB Test Exp"])
@@ -96,6 +97,11 @@ namespace PracticumEmailer
             }
 
             MessageBox.Show("Done Sending " + count + " emails!");
+        }
+
+        private bool IsFbiCleared(params string[] fbiClearances)
+        {
+            return fbiClearances.Aggregate(false, (current, fbiClearance) => current || Cleared(fbiClearance));
         }
 
         private bool Cleared(string data)

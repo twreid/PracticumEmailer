@@ -94,13 +94,6 @@
     <Compile Include="EditMessages.xaml.cs">
       <DependentUpon>EditMessages.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HtmlCssParser.cs" />
-    <Compile Include="HtmlFromXamlConverter.cs" />
-    <Compile Include="HtmlLexicalAnalyzer.cs" />
-    <Compile Include="HtmlParser.cs" />
-    <Compile Include="HtmlSchema.cs" />
-    <Compile Include="HtmlTokenType.cs" />
-    <Compile Include="HtmlToXamlConverter.cs" />
     <Compile Include="MailPrep.cs" />
     <Compile Include="settings.cs" />
     <Compile Include="Student.cs" />

@@ -5,8 +5,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
-using WpfRichText.Ex;
-using WpfRichText.Ex.XamlToHtmlParser;
 
 namespace PracticumEmailer
 {
@@ -15,10 +13,6 @@ namespace PracticumEmailer
         private ObservableCollection<string> _files;
         private string _text;
        
-        public TextEditorViewModel()
-        {
-         }
-
         public string Text
         {
             get { return _text; }
