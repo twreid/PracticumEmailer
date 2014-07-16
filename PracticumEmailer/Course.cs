@@ -9,82 +9,82 @@ namespace PracticumEmailer
     public class Course : INotifyPropertyChanged
     {
 
-        private string course;
-        private bool fbi;
-        private bool tb;
-        private bool fcsr;
-        private bool liab;
-        private bool isPracticum;
+        private string _course;
+        private bool _fbi;
+        private bool _tb;
+        private bool _fcsr;
+        private bool _liab;
+        private bool _isPracticum;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Course()
         {
-            course = "";
-            fbi = false;
-            tb = false;
-            liab = false;
-            fcsr = false;
-            isPracticum = false;
+            _course = "";
+            _fbi = false;
+            _tb = false;
+            _liab = false;
+            _fcsr = false;
+            _isPracticum = false;
         }
 
         public string CourseId
         {
-            get { return course; }
+            get { return _course; }
             set 
             { 
-                course = value;
+                _course = value;
                 this.NotifyPropertyChanged("CourseId");
             }
             
         }
 
-        public bool FBI
+        public bool Fbi
         {
-            get { return fbi; }
+            get { return _fbi; }
             set 
             { 
-                fbi = value;
-                this.NotifyPropertyChanged("FBI");
+                _fbi = value;
+                this.NotifyPropertyChanged("Fbi");
             }
         }
 
-        public bool TB
+        public bool Tb
         {
-            get { return tb; }
+            get { return _tb; }
             set 
             { 
-                tb = value;
-                this.NotifyPropertyChanged("TB");
+                _tb = value;
+                this.NotifyPropertyChanged("Tb");
             }
         }
 
-        public bool FCSR
+        public bool Fcsr
         {
-            get { return fcsr; }
+            get { return _fcsr; }
             set 
             { 
-                fcsr = value;
-                this.NotifyPropertyChanged("FCSR");
+                _fcsr = value;
+                this.NotifyPropertyChanged("Fcsr");
             }
         }
 
-        public bool LIAB
+        public bool Liab
         {
-            get { return liab; }
+            get { return _liab; }
             set 
             { 
-                liab = value;
-                this.NotifyPropertyChanged("LIAB");
+                _liab = value;
+                this.NotifyPropertyChanged("Liab");
             }
         }
 
         public bool IsPracticum
         {
-            get { return isPracticum; }
+            get { return _isPracticum; }
             set 
             { 
-                isPracticum = value;
+                _isPracticum = value;
                 this.NotifyPropertyChanged("IsPracticum");
             }
         }

@@ -54,10 +54,10 @@ namespace PracticumEmailer
                 _isPracticum = req[courseId].IsPracticum;
 
 
-                _needFbi = req[courseId].FBI;
-                _needFcsr = req[courseId].FCSR;
-                _needLiab = req[courseId].LIAB;
-                _needTb = req[courseId].TB;
+                _needFbi = req[courseId].Fbi;
+                _needFcsr = req[courseId].Fcsr;
+                _needLiab = req[courseId].Liab;
+                _needTb = req[courseId].Tb;
             }
         }
 
