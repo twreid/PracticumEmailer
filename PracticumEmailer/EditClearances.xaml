@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="EditClearances" Height="300" Width="290" Closing="EditClearances_Closing">
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Name="CourseGrid" CanUserAddRows="True" AlternatingRowBackground="#AB67A2DE" CanUserDeleteRows="True" CanUserSortColumns="True">
+    <Grid>
+        <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Name="CourseGrid" CanUserAddRows="True" AlternatingRowBackground="#AB67A2DE" CanUserDeleteRows="True" CanUserSortColumns="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CourseId" Binding="{Binding CourseId}"/>
                 <DataGridCheckBoxColumn Header="FBI" Binding="{Binding Fbi}"/>
@@ -13,5 +13,5 @@
                 <DataGridCheckBoxColumn Header="IsPracticum" Binding="{Binding IsPracticum}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </StackPanel>
+    </Grid>
 </Window>
