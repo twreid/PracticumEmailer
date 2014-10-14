@@ -28,7 +28,7 @@ namespace PracticumEmailer
             }
             catch (System.IO.IOException e)
             {
-                throw e;
+                throw;
             }
             
            
