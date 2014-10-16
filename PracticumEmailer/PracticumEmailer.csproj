@@ -15,6 +15,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -100,6 +102,7 @@
     <Compile Include="SettingsDialog.xaml.cs">
       <DependentUpon>SettingsDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StudentManager.cs" />
     <Compile Include="TextEditorViewModel.cs" />
     <Page Include="Controls\TextEditor.xaml">
       <SubType>Designer</SubType>
@@ -165,8 +168,23 @@
       <Project>{84badda1-ab3a-4064-b87e-178d7446901d}</Project>
       <Name>SmithHtmlEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PracticumEmailer.Domain\PracticumEmailer.Domain.csproj">
+      <Project>{449ecd49-53ae-4701-bed5-1a6084cec177}</Project>
+      <Name>PracticumEmailer.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticumEmailer.Interfaces\PracticumEmailer.Interfaces.csproj">
+      <Project>{405818f4-2a5c-41f0-876b-c690d37aa1f4}</Project>
+      <Name>PracticumEmailer.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

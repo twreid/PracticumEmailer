@@ -11,6 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmithHtmlEditor", "..\Smith
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Domain", "PracticumEmailer.Domain\PracticumEmailer.Domain.csproj", "{449ECD49-53AE-4701-BED5-1A6084CEC177}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1AD4675F-ED54-43AA-A2D8-C31264206745}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Interfaces", "PracticumEmailer.Interfaces\PracticumEmailer.Interfaces.csproj", "{405818F4-2A5C-41F0-876B-C690D37AA1F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +60,16 @@ Global
 		{449ECD49-53AE-4701-BED5-1A6084CEC177}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{449ECD49-53AE-4701-BED5-1A6084CEC177}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{449ECD49-53AE-4701-BED5-1A6084CEC177}.Release|x86.ActiveCfg = Release|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{405818F4-2A5C-41F0-876B-C690D37AA1F4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
