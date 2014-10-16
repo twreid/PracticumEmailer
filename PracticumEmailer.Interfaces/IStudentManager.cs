@@ -18,7 +18,7 @@ namespace PracticumEmailer.Interfaces
 
     public interface IStudentManager
     {
-        Requirements DetermineRequirements(Domain.Student student);
+        Requirements DetermineRequirements(IEnumerable<string> courses);
 
         bool IsCleared(Domain.Student student, Requirements requirements);
 

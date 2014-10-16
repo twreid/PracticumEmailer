@@ -21,11 +21,9 @@ namespace PracticumEmailer
         private readonly IExcelQueryFactory _excelFactory;
         private readonly bool? _isTest;
         private readonly Application _myOutlook;
-        private readonly Dictionary<String, Course> _requirements;
         private readonly IStudentManager _studentManager;
         private readonly Task _studentTask;
         private readonly IDictionary<string, Domain.Student> _students;
-        private readonly Dictionary<String, Student> _studentsInfo;
 
 
         public Parser(string file, DateTime cutoff, bool? test, IEmailManager emailManager,
@@ -42,13 +40,10 @@ namespace PracticumEmailer
 
             _emailManager = emailManager;
             _studentManager = studentManager;
-            _requirements = new Dictionary<String, Course>();
             _cutoff = cutoff;
             _students = new Dictionary<string, Domain.Student>();
-            _studentsInfo = new Dictionary<String, Student>();
             _myOutlook = new Application();
             _isTest = test;
-            _requirements = CourseManager.readCourses();
 
             _studentTask = Task.Factory.StartNew(PopulateStudents);
         }
@@ -59,35 +54,16 @@ namespace PracticumEmailer
 
             IEnumerable<MailMessage> emails = _students.Values.Select(s => _emailManager.GenerateEmail(s));
 
-        }
-
-        private bool IsFbiCleared(params string[] fbiClearances)
-        {
-            return fbiClearances.Aggregate(false, (current, fbiClearance) => current || Cleared(fbiClearance));
-        }
-
-        private bool Cleared(string data)
-        {
-            if (string.IsNullOrEmpty(data))
+            if (_isTest.GetValueOrDefault(false))
             {
-                return false;
+               ShowTestEmails(emails.Take(5)); 
             }
 
-            if (Regex.IsMatch(data, "[0-9]*/[0-9]*/[0-9]*"))
-            {
-                try
-                {
-                    DateTime t = Convert.ToDateTime(data);
+        }
 
-                    return t.CompareTo(_cutoff) >= 0;
-                }
-                catch (FormatException ex)
-                {
-                    MessageBox.Show(ex.Message, "Invalid Date");
-                }
-            }
-
-            return true;
+        private void ShowTestEmails(IEnumerable<MailMessage> emails)
+        {
+            
         }
 
         private void PopulateStudents()
@@ -110,7 +86,7 @@ namespace PracticumEmailer
                 Name = row["Name"],
                 MNumber = row["M-Number"],
                 Email = row["Email_Address"],
-                Major =["Program_Desc"],
+                Major = row["Program_Desc"],
                 FbiExpiration = string.Join(",", row["FBI_DESE"], row["FBI_MOVECHS"], row["FBW_MOVECHS"]),
                 LiabExpiration = row["Liability Insurance Expiration"],
                 FcsrExpiration = row["FCSR Expiration Date"],

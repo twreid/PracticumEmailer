@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.ComponentModel;
+using System.Linq;
+using System.Xml.Serialization;
 
 namespace PracticumEmailer
 {
-    static class CourseManager
+    public class CourseManager
     {
         //Takes a dictionary of courses and the object course and writes it to xml
         public static void saveCourses(Dictionary<string, Course> d)
