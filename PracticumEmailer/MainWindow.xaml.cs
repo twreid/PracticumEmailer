@@ -1,131 +1,111 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
+using System.Windows;
+using Microsoft.Win32;
+using PracticumEmailer.Properties;
 
 namespace PracticumEmailer
 {
-    
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Microsoft.Win32.OpenFileDialog ofd;
-        private bool isFileSelected = false;
-        
+        private bool _isFileSelected;
+        private OpenFileDialog _ofd;
+
         public MainWindow()
         {
             InitializeComponent();
-            init();
-            
+            Init();
         }
 
-        private void init()
-        {   //Setup Open File Dialog options
-            ofd = new Microsoft.Win32.OpenFileDialog
-                {Filter = "Comma Separated Values (.csv)|*.csv", Title = "Select the Data File."};
+        private void Init()
+        {
+            _ofd = new OpenFileDialog
+            {Filter = "Comma Separated Values (.csv)|*.csv", Title = "Select the Data File."};
 
-            //Check and set default values from last run
-            if (Properties.Settings.Default.DataFile == String.Empty)
+            if (Settings.Default.DataFile == String.Empty)
             {
                 txtFile.Text = string.Empty;
-                this.isFileSelected = false;
+                _isFileSelected = false;
             }
             else
             {
-                txtFile.Text = Properties.Settings.Default.DataFile;
+                txtFile.Text = Settings.Default.DataFile;
                 if (File.Exists(txtFile.Text))
                 {
-                    this.isFileSelected = true;
+                    _isFileSelected = true;
                 }
                 else
                 {
-                    this.isFileSelected = false;
+                    _isFileSelected = false;
                     txtFile.Text = String.Empty;
                 }
-                
             }
 
-            if (Properties.Settings.Default.CutOffDate == null)
+            if (Settings.Default.CutOffDate == null)
             {
                 calCutOff.DisplayDate = DateTime.Now;
                 calCutOff.SelectedDate = DateTime.Now;
             }
             else
             {
-                calCutOff.DisplayDate = Properties.Settings.Default.CutOffDate;
-                calCutOff.SelectedDate = Properties.Settings.Default.CutOffDate;
+                calCutOff.DisplayDate = Settings.Default.CutOffDate;
+                calCutOff.SelectedDate = Settings.Default.CutOffDate;
             }
 
-            btnStart.IsEnabled = isFileSelected;
+            btnStart.IsEnabled = _isFileSelected;
         }
 
-        private void btnOpenFile_Click(object sender, RoutedEventArgs e){
-            
-            if (true == ofd.ShowDialog())
+        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            if (true == _ofd.ShowDialog())
             {
-                if (File.Exists(ofd.FileName))
+                if (File.Exists(_ofd.FileName))
                 {
-                    txtFile.Text = ofd.FileName;
-                    Properties.Settings.Default.DataFile = ofd.FileName;
-                    Properties.Settings.Default.Save();
-                    isFileSelected = true;
+                    txtFile.Text = _ofd.FileName;
+                    Settings.Default.DataFile = _ofd.FileName;
+                    Settings.Default.Save();
+                    _isFileSelected = true;
                 }
             }
             else
             {
                 txtFile.Text = "No Valid File Selected.";
-                isFileSelected = false;
+                _isFileSelected = false;
             }
-            btnStart.IsEnabled = isFileSelected;
-            
+            btnStart.IsEnabled = _isFileSelected;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Parser p = new Parser(txtFile.Text, calCutOff.SelectedDate.Value, chkTest.IsChecked);
+                var p = new Parser(txtFile.Text, chkTest.IsChecked, null,
+                    new StudentManager(null, calCutOff.SelectedDate.Value));
                 p.StartParse();
             }
-            catch (System.IO.IOException ex)
+            catch (IOException ex)
             {
                 MessageBox.Show(ex.Message, "Error Opening CSV File");
-                return;
             }
-            catch (System.InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 MessageBox.Show("Must Select a Valid date.", "Invalid Date: " + ex.Message);
-                return;
             }
-            
-            
         }
 
         private void editCourses_Click(object sender, RoutedEventArgs e)
         {
-            EditClearances s = new EditClearances();
+            var s = new EditClearances();
             s.ShowDialog();
         }
 
         private void editMessages_Click(object sender, RoutedEventArgs e)
         {
-            EditMessages s = new EditMessages();
+            var s = new EditMessages();
             s.ShowDialog();
         }
-
-
-
     }
 }

@@ -15,7 +15,7 @@ namespace PracticumEmailer
         public StudentManager(CourseManager courseManager, DateTime dateLimit)
         {
             _courseManager = courseManager;
-            _courses = CourseManager.readCourses();
+            _courses = CourseManager.ReadCourses();
             _dateLimit = dateLimit;
         }
 
@@ -115,6 +115,8 @@ namespace PracticumEmailer
                     return false;
                 } 
             }
+
+            return true;
         }
     }
 }

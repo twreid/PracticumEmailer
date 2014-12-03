@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Office.Interop.Outlook;
-
 
 namespace PracticumEmailer
 {
     public class Student
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Major { get; set; }
-        public ISet<String> Courses { get; private set; }
-        public bool IsTbCleared { get; set; }
-        public bool IsLiabCleared { get; set; }
-        public bool IsFcsrCleared { get; set; }
-        public bool IsFbiCleared { get; set; }
-        public string CourseId { get; set; }
-        public string MNumber { get; set; }
-
         private readonly string _curdir;
-
-        private bool _needFbi, _needTb, _needLiab, _needFcsr, _isPracticum, _isDisp;
+        private bool _isDisp;
+        private bool _isPracticum;
+        private bool _needFbi;
+        private bool _needFcsr;
+        private bool _needLiab;
+        private bool _needTb;
 
         public Student()
         {
@@ -37,6 +30,17 @@ namespace PracticumEmailer
             _curdir = _curdir.Remove(_curdir.LastIndexOf('\\'));
         }
 
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Major { get; set; }
+        public ISet<String> Courses { get; private set; }
+        public bool IsTbCleared { get; set; }
+        public bool IsLiabCleared { get; set; }
+        public bool IsFcsrCleared { get; set; }
+        public bool IsFbiCleared { get; set; }
+        public string CourseId { get; set; }
+        public string MNumber { get; set; }
+
         public override String ToString()
         {
             return "Name: " + Name + " Email: " + Email + " Courses: " + Courses;
@@ -49,7 +53,10 @@ namespace PracticumEmailer
 
         private void SetNeeds(IDictionary<string, Course> req)
         {
-            foreach (string courseId in Courses.Where(courseId => !courseId.Contains("KIN") || !Major.Contains("Exercise & Mov")).Where(req.ContainsKey))
+            foreach (
+                string courseId in
+                    Courses.Where(courseId => !courseId.Contains("KIN") || !Major.Contains("Exercise & Mov"))
+                        .Where(req.ContainsKey))
             {
                 _isPracticum = req[courseId].IsPracticum;
 
@@ -69,8 +76,8 @@ namespace PracticumEmailer
 
         public int SendEmail(Object outlook)
         {
-            System.IO.StreamWriter badEmails = new System.IO.StreamWriter(_curdir + "/bad emails.txt", true);
-            string header = System.IO.File.ReadAllText(_curdir + "/header.html");
+            var badEmails = new StreamWriter(_curdir + "/bad emails.txt", true);
+            string header = File.ReadAllText(_curdir + "/header.html");
             string strCourses = string.Concat(Courses.Select(s => s + ","));
             bool needsEmail = false;
             int ret = 0;
@@ -85,16 +92,16 @@ namespace PracticumEmailer
             header = header.Replace("%class_type%", _isPracticum ? "a practicum" : "student teaching");
 
 
-            Application myOut = (Application)outlook;
+            var myOut = (Application) outlook;
 
-            MailItem msg = (MailItem)myOut.CreateItem(OlItemType.olMailItem);
+            var msg = (MailItem) myOut.CreateItem(OlItemType.olMailItem);
             msg.Subject = "Required Clearance Documents";
             msg.Importance = OlImportance.olImportanceHigh;
             Recipient to = msg.Recipients.Add(Email);
 
             if (!to.Resolve())
             {
-                badEmails.WriteLine(this.Name + "\t" + this.Email + "\t");
+                badEmails.WriteLine(Name + "\t" + Email + "\t");
             }
 
 
@@ -103,30 +110,30 @@ namespace PracticumEmailer
             msg.HTMLBody += header;
             if (_needFcsr && !IsFcsrCleared)
             {
-                msg.HTMLBody += System.IO.File.ReadAllText(_curdir + "/fcsr.html");
+                msg.HTMLBody += File.ReadAllText(_curdir + "/fcsr.html");
                 needsEmail = true;
             }
 
             if (_needTb && !IsTbCleared)
             {
-                msg.HTMLBody += System.IO.File.ReadAllText(_curdir + "/tb.html");
+                msg.HTMLBody += File.ReadAllText(_curdir + "/tb.html");
                 needsEmail = true;
             }
 
             if (_needLiab && !IsLiabCleared)
             {
-                msg.HTMLBody += System.IO.File.ReadAllText(_curdir + "/pli.html");
+                msg.HTMLBody += File.ReadAllText(_curdir + "/pli.html");
                 needsEmail = true;
             }
 
             if (_needFbi && !IsFbiCleared)
             {
-                msg.HTMLBody += System.IO.File.ReadAllText(_curdir + "/fbi.html");
+                msg.HTMLBody += File.ReadAllText(_curdir + "/fbi.html");
                 needsEmail = true;
             }
 
 
-            msg.HTMLBody += System.IO.File.ReadAllText(_curdir + "/footer.html");
+            msg.HTMLBody += File.ReadAllText(_curdir + "/footer.html");
 
             if (needsEmail)
             {
@@ -141,7 +148,7 @@ namespace PracticumEmailer
 
                 ret = 1;
             }
-            
+
             badEmails.Close();
 
             return ret;

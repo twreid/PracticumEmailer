@@ -1,14 +1,11 @@
-﻿using System;
+﻿using LinqToExcel;
+using PracticumEmailer.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows;
-using LinqToExcel;
-using PracticumEmailer.Interfaces;
 using Application = Microsoft.Office.Interop.Outlook.Application;
 using Row = LinqToExcel.Row;
 
@@ -16,7 +13,6 @@ namespace PracticumEmailer
 {
     internal class Parser
     {
-        private readonly DateTime _cutoff;
         private readonly IEmailManager _emailManager;
         private readonly IExcelQueryFactory _excelFactory;
         private readonly bool? _isTest;
@@ -26,7 +22,7 @@ namespace PracticumEmailer
         private readonly IDictionary<string, Domain.Student> _students;
 
 
-        public Parser(string file, DateTime cutoff, bool? test, IEmailManager emailManager,
+        public Parser(string file, bool? test, IEmailManager emailManager,
             IStudentManager studentManager)
         {
             try
@@ -40,7 +36,6 @@ namespace PracticumEmailer
 
             _emailManager = emailManager;
             _studentManager = studentManager;
-            _cutoff = cutoff;
             _students = new Dictionary<string, Domain.Student>();
             _myOutlook = new Application();
             _isTest = test;
@@ -63,6 +58,7 @@ namespace PracticumEmailer
 
         private void ShowTestEmails(IEnumerable<MailMessage> emails)
         {
+
             
         }
 

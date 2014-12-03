@@ -7,52 +7,37 @@ namespace PracticumEmailer
 {
     public class CourseManager
     {
-        //Takes a dictionary of courses and the object course and writes it to xml
-        public static void saveCourses(Dictionary<string, Course> d)
-        {
-            List<Course> l = d.Select(kvp => kvp.Value).ToList();
+        private const string FileName = "courses.xml";
 
-            XmlSerializer s = new XmlSerializer(typeof(List<Course>), "Courses");
-            TextWriter t = new StreamWriter("courses.xml");
+        public static void SaveCourses(List<Course> l)
+        {
+            var s = new XmlSerializer(typeof (List<Course>), "Courses");
+            TextWriter t = new StreamWriter(FileName);
 
             s.Serialize(t, l);
 
             t.Close();
-            
         }
 
-        public static void saveCourses(List<Course> l)
+        public static Dictionary<string, Course> ReadCourses()
         {
-            XmlSerializer s = new XmlSerializer(typeof(List<Course>), "Courses");
-            TextWriter t = new StreamWriter("courses.xml");
+            var s = new XmlSerializer(typeof (List<Course>), "Courses");
 
-            s.Serialize(t, l);
-
-            t.Close();
-
-        }
-
-        //Returns a dictionary of the courses and their objects from the xml file.
-        public static Dictionary<string, Course> readCourses()
-        {
-            XmlSerializer s = new XmlSerializer(typeof(List<Course>), "Courses");
-
-            using (TextReader r = new StreamReader("courses.xml"))
+            using (TextReader r = new StreamReader(FileName))
             {
-                List<Course> l = (List<Course>)s.Deserialize(r);
+                var l = (List<Course>) s.Deserialize(r);
 
                 return l.Where(c => !string.IsNullOrEmpty(c.CourseId)).ToDictionary(c => c.CourseId);
             }
         }
 
-        public static List<Course> getCourseList()
+        public static List<Course> GetCourseList()
         {
-            XmlSerializer s = new XmlSerializer(typeof(List<Course>), "Courses");
+            var s = new XmlSerializer(typeof (List<Course>), "Courses");
 
-            using (TextReader r = new StreamReader("courses.xml"))
+            using (TextReader r = new StreamReader(FileName))
             {
-                return (List<Course>)s.Deserialize(r);             
-
+                return (List<Course>) s.Deserialize(r);
             }
         }
     }

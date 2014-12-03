@@ -16,7 +16,7 @@ namespace PracticumEmailer
         {
             InitializeComponent();
 
-            List<Course> courses = CourseManager.getCourseList().OrderBy(c => c.CourseId).ToList();
+            List<Course> courses = CourseManager.GetCourseList().OrderBy(c => c.CourseId).ToList();
 
             _courses = new BindingList<Course>(courses)
             {
@@ -30,7 +30,7 @@ namespace PracticumEmailer
 
         private void EditClearances_Closing(object sender, CancelEventArgs e)
         {
-            CourseManager.saveCourses(_courses.ToList());
+            CourseManager.SaveCourses(_courses.ToList());
         }
     }
 }
