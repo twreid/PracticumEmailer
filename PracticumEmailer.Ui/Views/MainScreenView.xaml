@@ -2,22 +2,45 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="600">
     <Grid Height="305">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="29*" />
-            <ColumnDefinition Width="83*" />
-            <ColumnDefinition Width="82*" />
-            <ColumnDefinition Width="309*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Button Content="..." Height="21" HorizontalAlignment="Right" Margin="0,35,12,0" Name="btnOpenFile" VerticalAlignment="Top" Width="24" Grid.Column="3" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="65,36,0,0" Name="txtFile" VerticalAlignment="Top" Width="367" IsReadOnly="False" UseLayoutRounding="False" Grid.ColumnSpan="3" Grid.Column="1" />
-        <Label Content="Data File:" Height="23" HorizontalAlignment="Left" Margin="12,35,0,0" Name="lblFile" VerticalAlignment="Top" Width="76" Grid.ColumnSpan="2" />
-        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="12,226,0,0" Name="btnStart" VerticalAlignment="Top" Width="75" IsEnabled="False" Grid.Column="3" />
-        <Calendar Height="170" HorizontalAlignment="Left" Margin="109,70,0,0" Name="calCutOff" VerticalAlignment="Top" Width="180" Grid.Column="3" />
-        <Label Content="Select Cut off Date:" Height="28" HorizontalAlignment="Left" Margin="80,70,0,0" Name="label1" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="2" />
-        <CheckBox Content="Test Run" Height="16" HorizontalAlignment="Left" Margin="37,118,0,0" Name="chkTest" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1" />
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Orientation="Vertical">
+            <DockPanel>
+                <TextBlock Height="23" Width="76" HorizontalAlignment="Left" DockPanel.Dock="Top">Data File:</TextBlock>
+                <Button x:Name="OpenFile" Content="..." Height="23" Width="25"  DockPanel.Dock="Right"/>
+                <TextBox x:Name="DataFile" Height="23" Margin="5" Width="Auto" />
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Orientation="Vertical">
+            <TextBlock Height="23" HorizontalAlignment="Center">Select Cut off Date:</TextBlock>
+            <Calendar x:Name="CutOff" Height="170" Width="180" HorizontalAlignment="Center" Margin="5" SelectionMode="SingleDate">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectedDatesChanged">
+                        <cal:ActionMessage MethodName="AssignCutOff">
+                            <cal:Parameter Value="{Binding SelectedDates, ElementName=CutOff}"></cal:Parameter>
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>    
+            </Calendar>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button x:Name="Start"  Content="Start" Height="23" Width="75" />
+            <CheckBox Content="Test Run" Height="16" />
+        </StackPanel>
     </Grid>
 </UserControl>
