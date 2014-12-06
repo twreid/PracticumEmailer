@@ -7,7 +7,6 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Start" Content="Start" Width="90" Margin="5,0"/>
             <Button x:Name="EditCleanerances" Content="Edit Clearances" Width="90" />
             <Button x:Name="EditTemplates" Content="Edit Templates" Width="90" Margin="5,0"></Button>
         </StackPanel>

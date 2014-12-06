@@ -40,7 +40,6 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button x:Name="Start"  Content="Start" Height="23" Width="75" />
-            <CheckBox Content="Test Run" Height="16" />
         </StackPanel>
     </Grid>
 </UserControl>

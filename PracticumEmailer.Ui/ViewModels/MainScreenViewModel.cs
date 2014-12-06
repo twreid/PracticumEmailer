@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
@@ -13,10 +10,9 @@ namespace PracticumEmailer.Ui.ViewModels
 {
     public class MainScreenViewModel : Screen
     {
-        private string _displayName;
-        private string _dataFile;
-
         private DateTime _cutOff;
+        private string _dataFile;
+        private string _displayName;
 
         public MainScreenViewModel()
         {
@@ -36,9 +32,9 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public string DataFile
         {
-            get { return _dataFile; } 
-            set 
-            { 
+            get { return _dataFile; }
+            set
+            {
                 _dataFile = value;
                 NotifyOfPropertyChange(() => DataFile);
             }
@@ -56,12 +52,12 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public OpenFileResult<FileInfo> OpenFile()
         {
-            var openFileResult =
+            OpenFileResult<FileInfo> openFileResult =
                 OpenFileResult.OneFile("Please Choose the data File.").FilterFiles("CSV Files (*.csv)|*.csv");
             openFileResult.Completed += (sender, args) =>
             {
                 var openFile = sender as OpenFileResult<FileInfo>;
-                DataFile = openFile.Result.FullName;
+                if (openFile != null) DataFile = openFile.Result.FullName;
             };
 
             return openFileResult;

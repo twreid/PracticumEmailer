@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.Composition;
 using Caliburn.Micro;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
-    [Export(typeof(IShell))]
+    [Export(typeof (IShell))]
     public class ShellViewModel : Conductor<Screen>.Collection.OneActive, IShell
     {
         public ShellViewModel()
