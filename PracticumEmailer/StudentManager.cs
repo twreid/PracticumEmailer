@@ -19,6 +19,11 @@ namespace PracticumEmailer
             _dateLimit = dateLimit;
         }
 
+        public IEnumerable<Domain.Student> LoadAll(string file)
+        {
+            throw new NotImplementedException();
+        }
+
         public Requirements DetermineRequirements(IEnumerable<string> courses)
         {
             var currentRequirements = Requirements.None;

@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using Caliburn.Micro.Extras;
+using PracticumEmailer.Domain;
+using PracticumEmailer.Interfaces;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
@@ -13,11 +17,14 @@ namespace PracticumEmailer.Ui.ViewModels
         private DateTime _cutOff;
         private string _dataFile;
         private string _displayName;
+        private readonly IStudentManager _studentManager ;
 
-        public MainScreenViewModel()
+        [ImportingConstructor]
+        public MainScreenViewModel(IStudentManager studentManager)
         {
             _displayName = "Practicum Emailer";
             _cutOff = DateTime.Now;
+            _studentManager = studentManager;
         }
 
         public override string DisplayName
@@ -71,7 +78,12 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public void Start(string dataFile)
         {
-            MessageBox.Show(string.Format("Click {0}", dataFile));
+            IEnumerable<Student> students = _studentManager.LoadAll(_dataFile);
+
+            foreach (var student in students)
+            {
+                Console.WriteLine(student.Name);
+            }
         }
 
         public bool CanStart(string dataFile)

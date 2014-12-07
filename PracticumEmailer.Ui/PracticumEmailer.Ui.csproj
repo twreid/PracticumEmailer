@@ -45,10 +45,14 @@
     <Reference Include="Caliburn.Micro.Platform">
       <HintPath>..\packages\Caliburn.Micro.2.0.1\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="CsvReader">
+      <HintPath>..\packages\CsvTools.1.0.11\lib\CsvReader.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.2.0.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -72,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Managers\StudentManager.cs" />
     <Compile Include="ViewModels\MainScreenViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -115,7 +120,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PracticumEmailer.Domain\PracticumEmailer.Domain.csproj">
+      <Project>{449ECD49-53AE-4701-BED5-1A6084CEC177}</Project>
+      <Name>PracticumEmailer.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PracticumEmailer.Interfaces\PracticumEmailer.Interfaces.csproj">
+      <Project>{405818F4-2A5C-41F0-876B-C690D37AA1F4}</Project>
+      <Name>PracticumEmailer.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\MainScreenView.xaml">
       <SubType>Designer</SubType>

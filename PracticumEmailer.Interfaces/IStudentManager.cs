@@ -18,6 +18,9 @@ namespace PracticumEmailer.Interfaces
 
     public interface IStudentManager
     {
+
+        IEnumerable<Domain.Student> LoadAll(string file);
+        
         Requirements DetermineRequirements(IEnumerable<string> courses);
 
         bool IsCleared(Domain.Student student, Requirements requirements);

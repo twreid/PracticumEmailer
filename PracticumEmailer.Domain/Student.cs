@@ -5,6 +5,11 @@ namespace PracticumEmailer.Domain
 {
     public class Student
     {
+        public Student()
+        {
+            Courses = new HashSet<String>();
+        }
+
         public string Name { get; set; }
 
         public string Email { get; set; }

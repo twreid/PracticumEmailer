@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
+using System.ComponentModel.Composition.Registration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
 using System.Windows;
+using Caliburn.Micro;
 
 namespace PracticumEmailer.Ui
 {
@@ -22,10 +21,16 @@ namespace PracticumEmailer.Ui
 
         protected override void Configure()
         {
-            _container 
+            var builder = new RegistrationBuilder();
+            builder.ForTypesMatching(t => t.Name.EndsWith("ViewModel"))
+                .Export()
+                .SetCreationPolicy(CreationPolicy.NonShared);
+
+            _container
                 = new CompositionContainer(
                     new AggregateCatalog(
-                        AssemblySource.Instance.Select(x => new AssemblyCatalog(x)).OfType<ComposablePartCatalog>()));
+                        AssemblySource.Instance.Select(x => new AssemblyCatalog(x, builder))
+                            .OfType<ComposablePartCatalog>()));
 
             var batch = new CompositionBatch();
 
@@ -38,8 +43,8 @@ namespace PracticumEmailer.Ui
 
         protected override object GetInstance(Type serviceType, string key)
         {
-            var contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
-            var exports = _container.GetExportedValues<object>(contract);
+            string contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
+            IEnumerable<object> exports = _container.GetExportedValues<object>(contract);
 
             if (exports.Any())
                 return exports.First();

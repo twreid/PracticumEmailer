@@ -13,7 +13,7 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public void ShowStartingScreen()
         {
-            ActivateItem(new MainScreenViewModel());
+            ActivateItem(IoC.Get<MainScreenViewModel>());
         }
     }
 }
