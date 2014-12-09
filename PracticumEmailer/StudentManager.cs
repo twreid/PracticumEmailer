@@ -1,4 +1,5 @@
-﻿using PracticumEmailer.Interfaces;
+﻿using PracticumEmailer.Domain;
+using PracticumEmailer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,6 +79,11 @@ namespace PracticumEmailer
 
             return true;
 
+        }
+
+        public Requirements DetermineEmails(Domain.Student student, Requirements requirements, DateTime cutOff)
+        {
+            throw new NotImplementedException();
         }
 
         private bool IsTbCleared(string tbExpiration)

@@ -4,8 +4,10 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DataAccess;
+using Newtonsoft.Json;
 using PracticumEmailer.Domain;
 using PracticumEmailer.Interfaces;
 
@@ -15,11 +17,17 @@ namespace PracticumEmailer.Ui.Managers
     public class StudentManager : IStudentManager
     {
         private readonly IDictionary<string, Student> _studentLookup;
+        private readonly IDictionary<string, Course> _courseLookup;
+        private readonly string _courseDataPath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                Properties.Settings.Default.CourseDataFile);
 
         public StudentManager()
         {
             _studentLookup = new Dictionary<string, Student>();
+            _courseLookup = JsonConvert.DeserializeObject<List<Course>>(File.ReadAllText(_courseDataPath, Encoding.UTF8)).ToDictionary(cl => cl.CourseId);
         }
+
         public IEnumerable<Student> LoadAll(string file)
         {
             var studentData = DataTable.New.ReadLazy(new FileStream(file, FileMode.Open, FileAccess.Read)).Rows.Select(GetStudent);
@@ -45,7 +53,39 @@ namespace PracticumEmailer.Ui.Managers
 
         public Requirements DetermineRequirements(IEnumerable<string> courses)
         {
-            throw new NotImplementedException();
+            var studentRequirements = Requirements.None;
+
+            foreach (var course in courses)
+            {
+                Course c = _courseLookup[course];
+
+                if (c.IsPracticum)
+                {
+                    studentRequirements |= Requirements.Practicum;
+                }
+
+                if (c.FbiRequired)
+                {
+                    studentRequirements |= Requirements.Fbi;
+                }
+
+                if (c.FcsrRequired)
+                {
+                    studentRequirements |= Requirements.Fcsr;
+                }
+
+                if (c.LiabRequired)
+                {
+                    studentRequirements |= Requirements.Liab;
+                }
+
+                if (c.TbRequired)
+                {
+                    studentRequirements |= Requirements.Tb;
+                }
+            }
+
+            return studentRequirements;
         }
 
         public bool IsCleared(Student student, Requirements requirements)
@@ -53,9 +93,48 @@ namespace PracticumEmailer.Ui.Managers
             throw new NotImplementedException();
         }
 
+        public Requirements DetermineEmails(Student student, Requirements requirements, DateTime cutOff)
+        {
+            var emailsNeeded = Requirements.None;
+
+            if (requirements.HasFlag(Requirements.Fbi))
+            {
+                if (!student.FbiExpiration.Split(',').Aggregate(false, (current, date) => current || IsCleared(date, cutOff)))
+                {
+                    emailsNeeded |= Requirements.Fbi;
+                }
+            }
+
+            if (requirements.HasFlag(Requirements.Fcsr))
+            {
+                if (!IsCleared(student.FcsrExpiration, cutOff))
+                {
+                    emailsNeeded |= Requirements.Fcsr;
+                }
+            }
+
+            if (requirements.HasFlag(Requirements.Liab))
+            {
+                if (!IsCleared(student.LiabExpiration, cutOff))
+                {
+                    emailsNeeded |= Requirements.Liab;
+                }
+            }
+
+            if (requirements.HasFlag(Requirements.Tb))
+            {
+                if (!IsCleared(student.TbExpiration, cutOff))
+                {
+                    emailsNeeded |= Requirements.Tb;
+                }
+            }
+
+            return emailsNeeded;
+        }
+
         private Student GetStudent(Row row)
         {
-            return new Student
+            var student = new Student
             {
                 Name = row["Name"],
                 MNumber = row["M-Number"],
@@ -66,6 +145,34 @@ namespace PracticumEmailer.Ui.Managers
                 FcsrExpiration = row["FCSR Expiration Date"],
                 TbExpiration = row["TB Test Exp"]
             };
+
+            student.Courses.Add(row["Course ID"].Split(' ')[0]);
+
+            return student;
+        }
+
+        private bool IsCleared(string expiration, DateTime cutOff)
+        {
+            if (string.IsNullOrEmpty(expiration))
+            {
+                return false;
+            }
+
+            if (Regex.IsMatch(expiration, "[0-9]*/[0-9]*/[0-9]*"))
+            {
+                try
+                {
+                    DateTime date = Convert.ToDateTime(expiration);
+
+                    return date.CompareTo(cutOff) >= 0;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

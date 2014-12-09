@@ -3,27 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PracticumEmailer.Domain;
 
 namespace PracticumEmailer.Interfaces
 {
-    [Flags]
-    public enum Requirements
-    {
-        None,
-        Fbi,
-        Fcsr,
-        Liab,
-        Tb,
-    }
-
     public interface IStudentManager
     {
 
-        IEnumerable<Domain.Student> LoadAll(string file);
+        IEnumerable<Student> LoadAll(string file);
         
         Requirements DetermineRequirements(IEnumerable<string> courses);
 
-        bool IsCleared(Domain.Student student, Requirements requirements);
+        bool IsCleared(Student student, Requirements requirements);
+
+        Requirements DetermineEmails(Student student, Requirements requirements, DateTime cutOff);
 
     }
 }

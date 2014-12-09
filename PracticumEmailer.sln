@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Interfaces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Ui", "PracticumEmailer.Ui\PracticumEmailer.Ui.csproj", "{F603055E-3391-4CD3-85BC-9AC2099A354A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationFix", "SerializationFix\SerializationFix.csproj", "{23D74F9B-567E-49C1-A89A-B5CEB36AC689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{34FA075B-80F7-4E3E-9AC9-879267C15530}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{34FA075B-80F7-4E3E-9AC9-879267C15530}.Debug|Any CPU.Build.0 = Debug|x86
 		{34FA075B-80F7-4E3E-9AC9-879267C15530}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{34FA075B-80F7-4E3E-9AC9-879267C15530}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{34FA075B-80F7-4E3E-9AC9-879267C15530}.Debug|x64.ActiveCfg = Release|x64
@@ -96,6 +99,18 @@ Global
 		{F603055E-3391-4CD3-85BC-9AC2099A354A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F603055E-3391-4CD3-85BC-9AC2099A354A}.Release|x64.ActiveCfg = Release|Any CPU
 		{F603055E-3391-4CD3-85BC-9AC2099A354A}.Release|x86.ActiveCfg = Release|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Release|x64.ActiveCfg = Release|Any CPU
+		{23D74F9B-567E-49C1-A89A-B5CEB36AC689}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

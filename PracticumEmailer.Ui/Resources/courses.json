@@ -1,0 +1,1090 @@
+[
+  {
+    "CourseId": "AGE493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "AGE494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "AGE499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "AGT493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "AGT494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "AGT499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ART360",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ART366",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ART401",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ART466",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ART469",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ART490",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ART491",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ART783",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "BSE493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "BSE494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "BSE499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "CFD160",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD255",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD260",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD354",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": false,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD360",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD454",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD455",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD466",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "CFD499",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "COM490",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COM491",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COM493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COU780",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COU781",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COU782",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COU783",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COU784",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "COU785",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "EAD782",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": false,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "EAD783",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": false,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "EAD882",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": false,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ECE301",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ECE401",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ECE490",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ECE491",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ECE492",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ECE499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "EDC199",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "EEM305",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ELE302",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ELE429",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ELE434",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ELE438",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ELE495",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ELE496",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ELE499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ELE500",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ELE600",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ENG405",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "ENG432",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ENG433",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "ENG434",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "FCS493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "FCS494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "FCS498",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "FCS507",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "FCS512",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "HST418",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "HST420",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "HST421",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "HST422",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "HST423",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "HST499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "KIN200",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN218",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN335",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN392",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN411",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN431",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN440",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "KIN468",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "KIN493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "KIN496",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "KIN498",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MCL413",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MCL491",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MCL493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MCL496",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MID439",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MID493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MID494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MID499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MTH410",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MTH493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MTH494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MTH496",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MUS148",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS200",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS305",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS340",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS410",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS411",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS430",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "MUS494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MUS496",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MUS499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "MUS510",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "RDG319",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "RDG421",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SCI314",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SCI404",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SCI414",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SCI493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SCI494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SCI499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SEC302",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SEC493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SEC494",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SEC499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SEC783",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SEC784",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SFR305",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SOC398",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": true,
+    "LiabRequired": false,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE346",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE495",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SPE496",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SPE499",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SPE516",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE517",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE520",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE522",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE617",
+    "FbiRequired": false,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE671",
+    "FbiRequired": false,
+    "TbRequired": false,
+    "FcsrRequired": false,
+    "LiabRequired": false,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "SPE750",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE760",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "SPE789",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": true
+  },
+  {
+    "CourseId": "THE490",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "THE491",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  },
+  {
+    "CourseId": "THE493",
+    "FbiRequired": true,
+    "TbRequired": true,
+    "FcsrRequired": true,
+    "LiabRequired": true,
+    "IsPracticum": false
+  }
+]

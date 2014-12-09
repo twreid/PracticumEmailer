@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using Caliburn.Micro.Extras;
@@ -14,10 +13,10 @@ namespace PracticumEmailer.Ui.ViewModels
 {
     public class MainScreenViewModel : Screen
     {
+        private readonly IStudentManager _studentManager;
         private DateTime _cutOff;
         private string _dataFile;
         private string _displayName;
-        private readonly IStudentManager _studentManager ;
 
         [ImportingConstructor]
         public MainScreenViewModel(IStudentManager studentManager)
@@ -80,9 +79,11 @@ namespace PracticumEmailer.Ui.ViewModels
         {
             IEnumerable<Student> students = _studentManager.LoadAll(_dataFile);
 
-            foreach (var student in students)
+            foreach (Student student in students)
             {
-                Console.WriteLine(student.Name);
+                Requirements studentRequirements = _studentManager.DetermineRequirements(student.Courses);
+
+                Requirements emailRequirements = _studentManager.DetermineEmails(student, studentRequirements, _cutOff);
             }
         }
 
