@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
+using PracticumEmailer.Domain;
 
 namespace PracticumEmailer.Interfaces
 {
+    public enum EmailHandler : byte
+    {
+        Exchange,
+        Outlook,
+        Smtp,
+        Test,
+    }
+
     public interface IEmailManager
     {
-        MailMessage GenerateEmail(Domain.Student student);
+        MailMessage GenerateEmail(Student student, Requirements emailRequirements);
 
-        void Send(MailMessage message);
+        void Send(IEnumerable<MailMessage> message);
     }
 }

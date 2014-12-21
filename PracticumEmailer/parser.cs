@@ -1,4 +1,5 @@
 ﻿using LinqToExcel;
+using PracticumEmailer.Domain;
 using PracticumEmailer.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,7 +48,7 @@ namespace PracticumEmailer
         {
             _studentTask.Wait();
 
-            IEnumerable<MailMessage> emails = _students.Values.Select(s => _emailManager.GenerateEmail(s));
+            IEnumerable<MailMessage> emails = _students.Values.Select(s => _emailManager.GenerateEmail(s, Requirements.None));
 
             if (_isTest.GetValueOrDefault(false))
             {

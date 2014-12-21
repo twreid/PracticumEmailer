@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using DataAccess;
 using Newtonsoft.Json;
 using PracticumEmailer.Domain;
@@ -32,7 +31,7 @@ namespace PracticumEmailer.Ui.Managers
         {
             var studentData = DataTable.New.ReadLazy(new FileStream(file, FileMode.Open, FileAccess.Read)).Rows.Select(GetStudent);
 
-            foreach (var student in studentData)
+            foreach (var student in studentData.Where(s => !s.Major.Contains("Excercise & Mov")))
             {
                 if (_studentLookup.ContainsKey(student.MNumber))
                 {
@@ -55,10 +54,8 @@ namespace PracticumEmailer.Ui.Managers
         {
             var studentRequirements = Requirements.None;
 
-            foreach (var course in courses)
+            foreach (Course c in courses.Where(c => !c.Contains("KIN")).Select(course => _courseLookup[course]))
             {
-                Course c = _courseLookup[course];
-
                 if (c.IsPracticum)
                 {
                     studentRequirements |= Requirements.Practicum;

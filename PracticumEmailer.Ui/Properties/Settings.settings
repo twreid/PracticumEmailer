@@ -5,5 +5,32 @@
     <Setting Name="CourseDataFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">PracticumEmailer\CourseData\courses.json</Value>
     </Setting>
+    <Setting Name="TemplateDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PracticumEmailer\Email\Templates</Value>
+    </Setting>
+    <Setting Name="HeaderTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">header.html</Value>
+    </Setting>
+    <Setting Name="FooterTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">footer.html</Value>
+    </Setting>
+    <Setting Name="FcsrTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fcsr.html</Value>
+    </Setting>
+    <Setting Name="FbiTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fbi.html</Value>
+    </Setting>
+    <Setting Name="LiabTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">liab.html</Value>
+    </Setting>
+    <Setting Name="TbTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tb.html</Value>
+    </Setting>
+    <Setting Name="EmailSubject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Required Clearance Documents</Value>
+    </Setting>
+    <Setting Name="MaximumTestEmails" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

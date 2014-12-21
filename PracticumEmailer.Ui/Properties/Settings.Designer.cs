@@ -34,5 +34,113 @@ namespace PracticumEmailer.Ui.Properties {
                 this["CourseDataFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PracticumEmailer\\Email\\Templates")]
+        public string TemplateDirectory {
+            get {
+                return ((string)(this["TemplateDirectory"]));
+            }
+            set {
+                this["TemplateDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("header.html")]
+        public string HeaderTemplate {
+            get {
+                return ((string)(this["HeaderTemplate"]));
+            }
+            set {
+                this["HeaderTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("footer.html")]
+        public string FooterTemplate {
+            get {
+                return ((string)(this["FooterTemplate"]));
+            }
+            set {
+                this["FooterTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fcsr.html")]
+        public string FcsrTemplate {
+            get {
+                return ((string)(this["FcsrTemplate"]));
+            }
+            set {
+                this["FcsrTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fbi.html")]
+        public string FbiTemplate {
+            get {
+                return ((string)(this["FbiTemplate"]));
+            }
+            set {
+                this["FbiTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("liab.html")]
+        public string LiabTemplate {
+            get {
+                return ((string)(this["LiabTemplate"]));
+            }
+            set {
+                this["LiabTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("tb.html")]
+        public string TbTemplate {
+            get {
+                return ((string)(this["TbTemplate"]));
+            }
+            set {
+                this["TbTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Required Clearance Documents")]
+        public string EmailSubject {
+            get {
+                return ((string)(this["EmailSubject"]));
+            }
+            set {
+                this["EmailSubject"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int MaximumTestEmails {
+            get {
+                return ((int)(this["MaximumTestEmails"]));
+            }
+            set {
+                this["MaximumTestEmails"] = value;
+            }
+        }
     }
 }

@@ -1,0 +1,23 @@
+﻿@using System.Linq
+@using PracticumEmailer.Domain
+@model dynamic
+
+
+@{
+    var requirements = (Requirements) Model.EmailRequirements;
+    var student = (Student) Model.CurrentStudent;
+    var semester = (string) Model.Semester;
+}
+
+<html>
+    <body>
+        <p><strong>@student.Name,</strong></p>
+        
+        <p>You are receiving this email because you are enrolled in @string.Join(",", student.Courses.Select(c => c)) for @semester which contains @if(requirements.HasFlag(Requirements.Practicum) {}. 
+            There are certain documents that you must submit to the Educational Field Experiences office.
+            <span style="text-decoration: underline"><strong>Below you will find detailed instructions for the documents needed to complete your file.</strong></span>
+            If you have submitted these documents to our office in the last 2 days, the items may still be in processing and you can ignore this email or let our office know if you have questions. 
+            For your %plural_courses%, our office needs the following %plural_documents%:
+        </p>
+    </body>
+</html>
