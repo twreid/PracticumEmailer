@@ -7,11 +7,13 @@ using System.ComponentModel.Composition.Registration;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using Caliburn.Metro;
 using Caliburn.Micro;
 
 namespace PracticumEmailer.Ui
 {
-    public class MefBootstrapper : BootstrapperBase
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
+    public class MefBootstrapper : CaliburnMetroCompositionBootstrapper<IShell>
     {
         private CompositionContainer _container;
 
@@ -66,7 +68,7 @@ namespace PracticumEmailer.Ui
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             DisplayRootViewFor<IShell>();
-            FileInfo courseData =
+            var courseData =
                 new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                     Properties.Settings.Default.CourseDataFile));
 

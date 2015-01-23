@@ -7,8 +7,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="EditCleanerances" Content="Edit Clearances" Width="90" />
-            <Button x:Name="EditTemplates" Content="Edit Templates" Width="90" Margin="5,0"></Button>
+            <Button x:Name="ShowEmailManager" Content="Send Emails" Width="90" Margin="5"></Button>
+            <Button x:Name="ShowEditClearances" Content="Edit Clearances" Width="90" Margin="5"/>
+            <Button x:Name="ShowEditTemplates" Content="Edit Templates" Width="90" Margin="5"></Button>
         </StackPanel>
         <ContentControl x:Name="ActiveItem" />
     </DockPanel>
