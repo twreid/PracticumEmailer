@@ -118,6 +118,9 @@
     <Compile Include="Views\EditClearancesView.xaml.cs">
       <DependentUpon>EditClearancesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditTemplatesView.xaml.cs">
+      <DependentUpon>EditTemplatesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainScreenView.xaml.cs">
       <DependentUpon>MainScreenView.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditClearancesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditTemplatesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
