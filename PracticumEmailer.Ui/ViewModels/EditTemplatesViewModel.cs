@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Caliburn.Micro;
+using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
@@ -17,6 +14,9 @@ namespace PracticumEmailer.Ui.ViewModels
                 Properties.Settings.Default.TemplateDirectory);
         private readonly BindableCollection<string> _files;
 
+        private string _currentTemplate;
+        private string _currentContent;
+
         [ImportingConstructor]
         public EditTemplatesViewModel()
         {
@@ -27,5 +27,24 @@ namespace PracticumEmailer.Ui.ViewModels
         }
 
         public BindableCollection<String> Files { get { return _files; } }
+
+        public String ContentHtml
+        {
+            get
+            {
+                return _currentContent;
+            }
+            set
+            {
+                _currentContent = value;
+                NotifyOfPropertyChange(() => ContentHtml);
+            }
+        }
+
+        public void OnSelectionChanged(string file)
+        {
+            _currentTemplate = Path.Combine(_templatesPath, string.Format("{0}.html", file.ToLower()));
+            ContentHtml = File.ReadAllText(_currentTemplate);
+        }
     }
 }

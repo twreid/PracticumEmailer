@@ -160,6 +160,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SmithHtmlEditor\SmithHtmlEditor\SmithHtmlEditor\SmithHtmlEditor.csproj">
+      <Project>{84badda1-ab3a-4064-b87e-178d7446901d}</Project>
+      <Name>SmithHtmlEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PracticumEmailer.Domain\PracticumEmailer.Domain.csproj">
       <Project>{449ECD49-53AE-4701-BED5-1A6084CEC177}</Project>
       <Name>PracticumEmailer.Domain</Name>
