@@ -11,7 +11,7 @@
         <StackPanel DockPanel.Dock="Top">
             <ComboBox x:Name="Files" cal:Message.Attach="[Event SelectionChanged] = [Action OnSelectionChanged(Files.SelectedItem)]"></ComboBox>
         </StackPanel>
-        <htmlEditor:HtmlEditor BindingContent="{Binding Path=ContentHtml}"></htmlEditor:HtmlEditor>
+        <htmlEditor:HtmlEditor x:Name="BindingContent" BindingContent="{Binding BindingContent, Mode=TwoWay}"></htmlEditor:HtmlEditor>
             
     </DockPanel>
 </UserControl>

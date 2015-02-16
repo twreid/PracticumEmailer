@@ -17,6 +17,8 @@ namespace PracticumEmailer.Ui.ViewModels
         private string _currentTemplate;
         private string _currentContent;
 
+        private ILog _logger = LogManager.GetLog(typeof (EditTemplatesViewModel));
+
         [ImportingConstructor]
         public EditTemplatesViewModel()
         {
@@ -28,7 +30,7 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public BindableCollection<String> Files { get { return _files; } }
 
-        public String ContentHtml
+        public String BindingContent
         {
             get
             {
@@ -37,14 +39,14 @@ namespace PracticumEmailer.Ui.ViewModels
             set
             {
                 _currentContent = value;
-                NotifyOfPropertyChange(() => ContentHtml);
+                NotifyOfPropertyChange(() => BindingContent);
             }
         }
 
         public void OnSelectionChanged(string file)
         {
             _currentTemplate = Path.Combine(_templatesPath, string.Format("{0}.html", file.ToLower()));
-            ContentHtml = File.ReadAllText(_currentTemplate);
+            BindingContent = File.ReadAllText(_currentTemplate);
         }
     }
 }

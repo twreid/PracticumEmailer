@@ -42,6 +42,8 @@ namespace PracticumEmailer.Ui
             batch.AddExportedValue(_container);
 
             _container.Compose(batch);
+
+            LogManager.GetLog = type => new DebugLog(type);
         }
 
         protected override object GetInstance(Type serviceType, string key)
