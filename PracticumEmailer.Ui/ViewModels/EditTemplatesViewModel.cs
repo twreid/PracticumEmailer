@@ -48,5 +48,10 @@ namespace PracticumEmailer.Ui.ViewModels
             _currentTemplate = Path.Combine(_templatesPath, string.Format("{0}.html", file.ToLower()));
             BindingContent = File.ReadAllText(_currentTemplate);
         }
+
+        public void Save()
+        {
+            File.WriteAllText(_currentTemplate, _currentContent);
+        }
     }
 }
