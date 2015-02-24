@@ -10,6 +10,7 @@ namespace PracticumEmailer.Ui.ViewModels
         public ShellViewModel()
         {
             ShowEmailManager();
+            DisplayName = "Practicum Emailer";
         }
 
         public void ShowEmailManager()

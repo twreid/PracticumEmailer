@@ -10,7 +10,7 @@
             <Button x:Name="AddCourse" Content="New" Margin="5"/>
             <Button x:Name="SaveCourses" Content="Save" Margin="5"/>
         </StackPanel>
-            <DataGrid x:Name="Courses" MaxHeight="600" CanUserDeleteRows="True" CanUserAddRows="True" CanUserSortColumns="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <DataGrid x:Name="Courses" MaxHeight="600" CanUserDeleteRows="True" CanUserAddRows="True" CanUserSortColumns="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource AzureDataGrid}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CourseId" Binding="{Binding CourseId}"></DataGridTextColumn>
                     <DataGridCheckBoxColumn Header="Is Practicum" Binding="{Binding IsPracticum}"></DataGridCheckBoxColumn>

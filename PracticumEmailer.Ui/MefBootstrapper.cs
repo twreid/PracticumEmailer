@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using Caliburn.Metro;
+using Caliburn.Metro.Core;
 using Caliburn.Micro;
 
 namespace PracticumEmailer.Ui
@@ -37,7 +38,7 @@ namespace PracticumEmailer.Ui
 
             var batch = new CompositionBatch();
 
-            batch.AddExportedValue<IWindowManager>(new WindowManager());
+            batch.AddExportedValue<IWindowManager>(new MetroWindowManager());
             batch.AddExportedValue<IEventAggregator>(new EventAggregator());
             batch.AddExportedValue(_container);
 
