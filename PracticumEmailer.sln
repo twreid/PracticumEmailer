@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Ui", "Prac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationFix", "SerializationFix\SerializationFix.csproj", "{23D74F9B-567E-49C1-A89A-B5CEB36AC689}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PracticumEmailer.Msi", "PracticumEmailer.Msi\PracticumEmailer.Msi.wixproj", "{90898158-AB2D-4266-84CC-A121B4B47756}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PracticumEmailer.Installer", "PracticumEmailer.Install\PracticumEmailer.Install.wixproj", "{90898158-AB2D-4266-84CC-A121B4B47756}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="PracticumEmailer.Domain">
+      <ComponentRef Id="C.PracticumEmailer.Domain.dll" />
+    </ComponentGroup>
+
+      <Component Id="C.PracticumEmailer.Domain.dll" Directory="PracticumEmailer" Guid="*">
+        <File Id="F.PracticumEmailer.Domain.dll" Source="$(var.PracticumEmailer.Domain.TargetDir)\PracticumEmailer.Domain.dll" />
+      </Component>
+  </Fragment>
+</Wix>
