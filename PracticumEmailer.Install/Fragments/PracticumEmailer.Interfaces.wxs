@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="PracticumEmailer.Interfaces">
+      <ComponentRef Id="C.PracticumEmailer.Interfaces.dll" />
+    </ComponentGroup>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="C.PracticumEmailer.Interfaces.dll" Guid="*">
+        <File Id="F.PracticumEmailer.Interfaces.dll"
+              Source="$(var.PracticumEmailer.Interfaces.TargetDir)PracticumEmailer.Interfaces.dll" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

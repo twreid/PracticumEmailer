@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <?include $(sys.CURRENTDIR)\Include\Platform.wxi?>
-	<Product Id="*" Name="PracticumEmailer" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="c66c101c-39e1-43ad-9305-20a5c81a4849">
+  <?include $(sys.CURRENTDIR)Includes\Platform.wxi?>
+	<Product Id="*" Name="PracticumEmailer" Language="1033" Version="1.0.0.0" Manufacturer="Reid" UpgradeCode="c66c101c-39e1-43ad-9305-20a5c81a4849">
 		<Package InstallerVersion="405" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<MediaTemplate CompressionLevel="high" EmbedCab="yes" />
 
     <PropertyRef Id="NETFRAMEWORK45"/>
     <Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
@@ -20,7 +20,10 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="$(var.PlatformProgramFilesFolder)">
-				<Directory Id="INSTALLFOLDER" Name="PracticumEmailer" />
+        <Directory Id="INSTALLFOLDER" Name="PracticumEmailer">
+          <Directory Id="en_US" Name="en-US" />
+          <Directory Id="zh_CN" Name="zh-CN" />
+        </Directory>
 			</Directory>
 		</Directory>
 	</Fragment>
@@ -29,6 +32,8 @@
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <ComponentGroupRef Id="PracticumEmailer.Ui"/>
       <ComponentGroupRef Id="PracticumEmailer.Domain"/>
+      <ComponentGroupRef Id="PracticumEmailer.Interfaces"/>
+      <ComponentGroupRef Id="SmithHtmlEditor"/>
 		</ComponentGroup>
 	</Fragment>
 </Wix>

@@ -5,8 +5,10 @@
       <ComponentRef Id="C.PracticumEmailer.Domain.dll" />
     </ComponentGroup>
 
-      <Component Id="C.PracticumEmailer.Domain.dll" Directory="PracticumEmailer" Guid="*">
-        <File Id="F.PracticumEmailer.Domain.dll" Source="$(var.PracticumEmailer.Domain.TargetDir)\PracticumEmailer.Domain.dll" />
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="C.PracticumEmailer.Domain.dll" Guid="*">
+        <File Id="F.PracticumEmailer.Domain.dll" Source="$(var.PracticumEmailer.Domain.TargetDir)PracticumEmailer.Domain.dll" />
       </Component>
+    </DirectoryRef>
   </Fragment>
 </Wix>

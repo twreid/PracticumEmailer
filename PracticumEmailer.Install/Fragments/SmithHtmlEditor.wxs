@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="SmithHtmlEditor">
+      <ComponentRef Id="C.Smith.WPF.HtmlEditor.dll" />
+      <ComponentRef Id="C.smithhtmleditor.config.xml" />
+      <ComponentRef Id="C.smithhtmleditor.stylesheet.css" />
+
+      <!-- en-Us Localization files -->
+      <ComponentRef Id="C.en_US.Smith.WPF.HtmlEditor.resources.dll" />
+
+      <!-- zh-CN Localization files -->
+      <ComponentRef Id="C.zh_CN.Smith.WPF.HtmlEditor.resources.dll" />
+    </ComponentGroup>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="C.Smith.WPF.HtmlEditor.dll" Guid="*">
+      <File Id="F.Smith.WPF.HtmlEditor.dll" Source="$(var.SmithHtmlEditor.TargetDir)Smith.WPF.HtmlEditor.dll" />
+      </Component>
+      <Component Id="C.smithhtmleditor.config.xml" Guid="*">
+        <File Id="F.smithhtmleditor.config.xml" Source="$(var.SmithHtmlEditor.TargetDir)smithhtmleditor.config.xml" />
+      </Component>
+      <Component Id="C.smithhtmleditor.stylesheet.css" Guid="*">
+        <File Id="F.smithhtmleditor.stylesheet.css" Source="$(var.SmithHtmlEditor.TargetDir)smithhtmleditor.stylesheet.css" />
+      </Component>
+    </DirectoryRef>
+    
+    <!-- en-Us Localization files -->
+
+    <DirectoryRef Id="en_US">
+      <Component Id="C.en_US.Smith.WPF.HtmlEditor.resources.dll" Guid="*">
+        <File Id="F.en_US.Smith.WPF.HtmlEditor.resources.dll" Source="$(var.SmithHtmlEditor.TargetDir)en-US\Smith.WPF.HtmlEditor.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    
+    <!-- zh-CN Localization files -->
+    <DirectoryRef Id="zh_CN">
+      <Component Id="C.zh_CN.Smith.WPF.HtmlEditor.resources.dll" Guid="*">
+        <File Id="F.zh_CN.Smith.WPF.HtmlEditor.resources.dll" Source="$(var.SmithHtmlEditor.TargetDir)zh-CN\Smith.WPF.HtmlEditor.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    
+  </Fragment>
+</Wix>

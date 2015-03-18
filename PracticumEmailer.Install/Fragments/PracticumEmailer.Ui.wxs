@@ -6,11 +6,13 @@
       <ComponentRef Id="C.PracticumEmailer.Ui.exe.config" />
     </ComponentGroup>
 
-      <Component Id="C.PracticumEmailer.Ui.exe" Directory="PracticumEmailer" Guid="*">
-        <File Id="F.PracticumEmailer.Ui.exe" Source="$(var.PracticumEmailer.Ui.TargetDir)\PracticumEmailer.Ui.exe" />
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="C.PracticumEmailer.Ui.exe" Guid="*">
+        <File Id="F.PracticumEmailer.Ui.exe" Source="$(var.PracticumEmailer.Ui.TargetDir)PracticumEmailer.Ui.exe" />
       </Component>
-      <Component Id="C.PracticumEmailer.Ui.exe.config" Directory="PracticumEmailer" Guid="*">
-        <File Id="F.PracticumEmailer.Ui.exe.config" Source="$(var.PracticumEmailer.Ui.TargetDir)\PracticumEmailer.Ui.exe.config" />
+      <Component Id="C.PracticumEmailer.Ui.exe.config" Guid="*">
+        <File Id="F.PracticumEmailer.Ui.exe.config" Source="$(var.PracticumEmailer.Ui.TargetDir)PracticumEmailer.Ui.exe.config" />
       </Component>
+    </DirectoryRef>
   </Fragment>
 </Wix>
