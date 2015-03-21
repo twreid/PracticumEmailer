@@ -25,6 +25,7 @@
     <Compile Include="Fragments\PracticumEmailer.Domain.wxs" />
     <Compile Include="Fragments\PracticumEmailer.Interfaces.wxs" />
     <Compile Include="Fragments\PracticumEmailer.Ui.wxs" />
+    <Compile Include="Fragments\Shortcuts.wxs" />
     <Compile Include="Fragments\SmithHtmlEditor.wxs" />
     <Compile Include="PracticumEmailer.wxs" />
   </ItemGroup>
