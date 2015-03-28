@@ -32,5 +32,8 @@
     <Setting Name="MaximumTestEmails" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
+    <Setting Name="BaseDataDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PracticumEmailer</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

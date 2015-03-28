@@ -93,5 +93,15 @@ namespace PracticumEmailer.Ui.Properties {
                 return ResourceManager.GetString("courses", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PracticumEmailer {
+            get {
+                object obj = ResourceManager.GetObject("PracticumEmailer", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

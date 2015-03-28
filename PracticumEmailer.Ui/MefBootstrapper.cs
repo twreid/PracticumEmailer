@@ -5,6 +5,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.ComponentModel.Composition.Registration;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Windows;
 using Caliburn.Metro;
@@ -70,19 +71,18 @@ namespace PracticumEmailer.Ui
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
+            CheckForTemplates();
             DisplayRootViewFor<IShell>();
-            var courseData =
-                new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                    Properties.Settings.Default.CourseDataFile));
+        }
 
-            if (!courseData.Exists)
+        private void CheckForTemplates()
+        {
+            if(!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    Properties.Settings.Default.BaseDataDirectory)))
             {
-                if (!Directory.Exists(courseData.DirectoryName))
-                {
-                    Directory.CreateDirectory(courseData.DirectoryName);
-                }
-
-                File.WriteAllText(courseData.FullName, Properties.Resources.courses);
+                String tempFile = Path.GetTempFileName();
+                File.WriteAllBytes(tempFile, Properties.Resources.PracticumEmailer);
+                ZipFile.ExtractToDirectory(tempFile, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             }
         }
     }

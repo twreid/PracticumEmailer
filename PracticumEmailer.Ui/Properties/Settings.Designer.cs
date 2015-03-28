@@ -142,5 +142,17 @@ namespace PracticumEmailer.Ui.Properties {
                 this["MaximumTestEmails"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PracticumEmailer")]
+        public string BaseDataDirectory {
+            get {
+                return ((string)(this["BaseDataDirectory"]));
+            }
+            set {
+                this["BaseDataDirectory"] = value;
+            }
+        }
     }
 }
