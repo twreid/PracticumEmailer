@@ -16,7 +16,8 @@
       
 		<Feature Id="ProductFeature" Title="PracticumEmailer.Msi" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
-      <ComponentRef Id="C.PracticumEmailer.Shortcut"/>
+      <ComponentRef Id="C.PracticumEmailer.Shortcut.Menu"/>
+      <ComponentRef Id="C.PracticumEmailer.Shortcut.Desktop"/>
 		</Feature>
 	</Product>
 

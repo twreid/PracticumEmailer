@@ -5,13 +5,20 @@
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationProgramsFolder" Name="Practicum Emailer"/>
       </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
     </DirectoryRef>
 
     <DirectoryRef Id="ApplicationProgramsFolder">
-      <Component Id="C.PracticumEmailer.Shortcut" Guid="*">
+      <Component Id="C.PracticumEmailer.Shortcut.Menu" Guid="*">
         <Shortcut Id="PracticumEmailerStartMenuShortcut" Name="Practicum Emailer" Description="Practicum Emailer" Target="[#F.PracticumEmailer.Ui.exe]" WorkingDirectory="INSTALLFOLDER"/>
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\Microsoft\PracticumEmailer" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\PracticumEmailer\ProgramMenuShortcut" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="C.PracticumEmailer.Shortcut.Desktop" Guid="*">
+        <Shortcut Id="PracticumEmailerDesktopShortcut" Name="Practicum Emailer" Description="Practicum Emailer" Target="[#F.PracticumEmailer.Ui.exe]" WorkingDirectory="INSTALLFOLDER"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\PracticumEmailer\DesktopShortcut" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
     </DirectoryRef>
 	</Fragment>
