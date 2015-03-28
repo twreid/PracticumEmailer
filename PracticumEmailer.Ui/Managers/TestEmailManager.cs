@@ -22,19 +22,22 @@ namespace PracticumEmailer.Ui.Managers
         private void DisplayEmail(MailMessage message)
         {
             var outlookMessage = Outlook.CreateItem(OlItemType.olMailItem) as MailItem;
-            outlookMessage.Subject = message.Subject;
-            outlookMessage.Importance = OlImportance.olImportanceHigh;
-            Recipient to = outlookMessage.Recipients.Add(message.To.First().ToString());
-
-            if (!to.Resolve())
+            if (outlookMessage != null)
             {
-                throw new InvalidDataException(string.Format("{0} is an invalid email.", message.To.First()));
+                outlookMessage.Subject = message.Subject;
+                outlookMessage.Importance = OlImportance.olImportanceHigh;
+                Recipient to = outlookMessage.Recipients.Add(message.To.First().ToString());
+
+                if (!to.Resolve())
+                {
+                    throw new InvalidDataException(string.Format("{0} is an invalid email.", message.To.First()));
+                }
+
+                outlookMessage.HTMLBody = message.Body;
+                outlookMessage.BodyFormat = OlBodyFormat.olFormatHTML;
+
+                outlookMessage.Display();
             }
-
-            outlookMessage.HTMLBody = message.Body;
-            outlookMessage.BodyFormat = OlBodyFormat.olFormatHTML;
-
-            outlookMessage.Display();
         }
     }
 }

@@ -53,8 +53,9 @@ namespace PracticumEmailer.Ui
             string contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
             IEnumerable<object> exports = _container.GetExportedValues<object>(contract);
 
-            if (exports.Any())
-                return exports.First();
+            var enumerable = exports as IList<object> ?? exports.ToList();
+            if (enumerable.Any())
+                return enumerable.First();
 
             throw new Exception(string.Format("Could not locate any instances of contract {0}.", contract));
         }

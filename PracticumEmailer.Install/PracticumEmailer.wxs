@@ -6,6 +6,8 @@
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate CompressionLevel="high" EmbedCab="yes" />
+    <Icon Id="I.PracticumEmailer" SourceFile="$(var.PracticumEmailer.Ui.TargetDir)Resources\email-14-64.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="I.PracticumEmailer" />
 
     <PropertyRef Id="NETFRAMEWORK45"/>
     <Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
