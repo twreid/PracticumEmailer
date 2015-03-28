@@ -4,6 +4,16 @@
     <ComponentGroup Id="PracticumEmailer.Ui">
       <ComponentRef Id="C.PracticumEmailer.Ui.exe" />
       <ComponentRef Id="C.PracticumEmailer.Ui.exe.config" />
+      <ComponentRef Id="C.Caliburn.Metro.Core.dll"/>
+      <ComponentRef Id="C.Caliburn.Metro.dll"/>
+      <ComponentRef Id="C.Caliburn.Micro.dll"/>
+      <ComponentRef Id="C.Caliburn.Micro.Extras.dll"/>
+      <ComponentRef Id="C.Caliburn.Micro.Platform.dll"/>
+      <ComponentRef Id="C.CsvReader.dll"/>
+      <ComponentRef Id="C.MahApps.Metro.dll"/>
+      <ComponentRef Id="C.Newtonsoft.Json.dll"/>
+      <ComponentRef Id="C.System.Windows.Interactivity.dll"/>
+      <ComponentRef Id="C.Weakly.dll"/>
     </ComponentGroup>
 
     <DirectoryRef Id="INSTALLFOLDER">
@@ -12,6 +22,36 @@
       </Component>
       <Component Id="C.PracticumEmailer.Ui.exe.config" Guid="*">
         <File Id="F.PracticumEmailer.Ui.exe.config" Source="$(var.PracticumEmailer.Ui.TargetDir)PracticumEmailer.Ui.exe.config" />
+      </Component>
+      <Component Id="C.Caliburn.Metro.Core.dll" Guid="*">
+        <File Id="F.Caliburn.Metro.Core.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Caliburn.Metro.Core.dll" />
+      </Component>
+      <Component Id="C.Caliburn.Metro.dll" Guid="*">
+        <File Id="F.Caliburn.Metro.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Caliburn.Metro.dll" />
+      </Component>
+      <Component Id="C.Caliburn.Micro.dll" Guid="*">
+        <File Id="F.Caliburn.Micro.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Caliburn.Micro.dll" />
+      </Component>
+      <Component Id="C.Caliburn.Micro.Extras.dll" Guid="*">
+        <File Id="F.Caliburn.Micro.Extras.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Caliburn.Micro.Extras.dll" />
+      </Component>
+      <Component Id="C.Caliburn.Micro.Platform.dll" Guid="*">
+        <File Id="F.Caliburn.Micro.Platform.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Caliburn.Micro.Platform.dll" />
+      </Component>
+      <Component Id="C.CsvReader.dll" Guid="*">
+        <File Id="F.CsvReader.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)CsvReader.dll" />
+      </Component>
+      <Component Id="C.MahApps.Metro.dll" Guid="*">
+        <File Id="F.MahApps.Metro.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)MahApps.Metro.dll" />
+      </Component>
+      <Component Id="C.Newtonsoft.Json.dll" Guid="*">
+        <File Id="F.Newtonsoft.Json.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="C.System.Windows.Interactivity.dll" Guid="*">
+        <File Id="F.System.Windows.Interactivity.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)System.Windows.Interactivity.dll" />
+      </Component>
+      <Component Id="C.Weakly.dll" Guid="*">
+        <File Id="F.Weakly.dll" Source="$(var.PracticumEmailer.Ui.TargetDir)Weakly.dll" />
       </Component>
     </DirectoryRef>
   </Fragment>
