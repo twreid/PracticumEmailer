@@ -11,6 +11,7 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <ComboBox x:Name="Files" cal:Message.Attach="[Event SelectionChanged] = [Action OnSelectionChanged(Files.SelectedItem)]" Width="200"></ComboBox>
             <Button x:Name="Save" Content="Save" Margin="5,0,5,0" Width="90"></Button>
+            <Button x:Name="ExportTemplates" Content="Export" Margin="5,0,5,0" Width="90"></Button>
         </StackPanel>
         <htmlEditor:HtmlEditor BindingContent="{Binding BindingContent, Mode=TwoWay}"></htmlEditor:HtmlEditor>
             

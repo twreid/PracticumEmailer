@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using System.IO.Compression;
+using Caliburn.Micro;
 using System;
 using System.ComponentModel.Composition;
 using System.IO;
@@ -52,6 +53,19 @@ namespace PracticumEmailer.Ui.ViewModels
         public void Save()
         {
             File.WriteAllText(_currentTemplate, _currentContent);
+        }
+
+        public void ExportTemplates()
+        {
+            if (Directory.Exists(_templatesPath))
+            {
+                ZipFile.CreateFromDirectory(_templatesPath,
+                    Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                        string.Format("templates-{0}.zip", DateTime.Now.ToFileTime())),
+                        CompressionLevel.Optimal,
+                        true);
+            }
         }
     }
 }
