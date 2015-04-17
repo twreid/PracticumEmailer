@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
+using Caliburn.Micro.Extras;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
@@ -66,6 +67,24 @@ namespace PracticumEmailer.Ui.ViewModels
                         CompressionLevel.Optimal,
                         true);
             }
+        }
+
+        public IResult<FileInfo> ImportTemplates()
+        {
+            OpenFileResult<FileInfo> openFileResult =
+                OpenFileResult.OneFile("Please file to import.")
+                .FilterFiles("Zip Files (*.zip)|*.zip");
+
+            openFileResult.Completed += (sender, args) =>
+            {
+                var openFile = sender as OpenFileResult<FileInfo>;
+                if (openFile != null && openFile.Result.Exists)
+                {
+                    Console.WriteLine(openFile.Result.FullName);
+                }
+            };
+
+            return openFileResult;
         }
     }
 }

@@ -80,7 +80,8 @@ namespace PracticumEmailer.Ui.ViewModels
         public OpenFileResult<FileInfo> OpenFile()
         {
             OpenFileResult<FileInfo> openFileResult =
-                OpenFileResult.OneFile("Please Choose the data File.").FilterFiles("CSV Files (*.csv)|*.csv");
+                OpenFileResult.OneFile("Please Choose the data File.")
+                .FilterFiles("CSV Files (*.csv)|*.csv");
             openFileResult.Completed += (sender, args) =>
             {
                 var openFile = sender as OpenFileResult<FileInfo>;
