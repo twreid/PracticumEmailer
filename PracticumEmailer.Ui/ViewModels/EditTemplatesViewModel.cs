@@ -58,7 +58,9 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public void ExportTemplates()
         {
-            if (Directory.Exists(_templatesPath))
+            var dir = new DirectoryInfo(_templatesPath);
+
+            if (dir.Exists)
             {
                 ZipFile.CreateFromDirectory(_templatesPath,
                     Path.Combine(

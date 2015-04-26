@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Ui", "Prac
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PracticumEmailer.Install", "PracticumEmailer.Install\PracticumEmailer.Install.wixproj", "{90898158-AB2D-4266-84CC-A121B4B47756}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Util", "PracticumEmailer.Util\PracticumEmailer.Util.csproj", "{735F64B8-D16F-40DF-ABF1-2325BAF560B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,18 @@ Global
 		{90898158-AB2D-4266-84CC-A121B4B47756}.Release|x64.ActiveCfg = Release|x86
 		{90898158-AB2D-4266-84CC-A121B4B47756}.Release|x86.ActiveCfg = Release|x86
 		{90898158-AB2D-4266-84CC-A121B4B47756}.Release|x86.Build.0 = Release|x86
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|x64.ActiveCfg = Release|Any CPU
+		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
