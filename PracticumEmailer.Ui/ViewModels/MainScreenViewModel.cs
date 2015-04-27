@@ -123,7 +123,10 @@ namespace PracticumEmailer.Ui.ViewModels
                     emailRequirements |= Requirements.Practicum;
                 }
 
-                yield return emailManager.GenerateEmail(student, emailRequirements);
+                if (emailRequirements != Requirements.None && emailRequirements != Requirements.Practicum)
+                {
+                    yield return emailManager.GenerateEmail(student, emailRequirements);
+                }
             }
         }
     }
