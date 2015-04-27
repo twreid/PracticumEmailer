@@ -1,5 +1,4 @@
-﻿
-namespace PracticumEmailer.Ui
+﻿namespace PracticumEmailer.Ui
 {
     public interface IShell
     {

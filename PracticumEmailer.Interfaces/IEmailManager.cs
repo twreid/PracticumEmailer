@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using PracticumEmailer.Domain;
+using System.Collections.Generic;
 using System.Net.Mail;
-using PracticumEmailer.Domain;
 
 namespace PracticumEmailer.Interfaces
 {

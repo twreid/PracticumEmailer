@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Outlook;
+using PracticumEmailer.Domain;
+using PracticumEmailer.Interfaces;
+using PracticumEmailer.Ui.Properties;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
 using System.Text;
-using PracticumEmailer.Domain;
-using PracticumEmailer.Interfaces;
-using PracticumEmailer.Ui.Properties;
-using Microsoft.Office.Interop.Outlook;
 
 namespace PracticumEmailer.Ui.Managers
 {
@@ -33,12 +33,12 @@ namespace PracticumEmailer.Ui.Managers
         protected readonly FileInfo LiabTemplate =
             new FileInfo(Path.Combine(EmailTemplatesDirectory, Settings.Default.LiabTemplate));
 
+        protected readonly Application Outlook = new Application();
+
         protected readonly FileInfo TbTemplate =
             new FileInfo(Path.Combine(EmailTemplatesDirectory, Settings.Default.TbTemplate));
 
         protected readonly IDictionary<string, string> Templates = new Dictionary<string, string>();
-
-        protected readonly Application Outlook = new Application();
 
         public MailMessage GenerateEmail(Student student, Requirements emailRequirements)
         {

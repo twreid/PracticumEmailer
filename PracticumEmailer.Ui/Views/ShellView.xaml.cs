@@ -3,7 +3,7 @@
 namespace PracticumEmailer.Ui.Views
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    ///     Interaction logic for ShellView.xaml
     /// </summary>
     public partial class ShellView : UserControl
     {

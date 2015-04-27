@@ -1,23 +1,24 @@
-﻿using System.IO.Compression;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
+using Caliburn.Micro.Extras;
+using PracticumEmailer.Ui.Properties;
 using System;
 using System.ComponentModel.Composition;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
-using Caliburn.Micro.Extras;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
-
     public class EditTemplatesViewModel : Screen
     {
-        private readonly string _templatesPath =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                Properties.Settings.Default.TemplateDirectory);
         private readonly BindableCollection<string> _files;
 
-        private string _currentTemplate;
+        private readonly string _templatesPath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                Settings.Default.TemplateDirectory);
+
         private string _currentContent;
+        private string _currentTemplate;
 
         private ILog _logger = LogManager.GetLog(typeof (EditTemplatesViewModel));
 
@@ -30,7 +31,10 @@ namespace PracticumEmailer.Ui.ViewModels
                     info.EnumerateFiles("*.html").Select(fi => fi.Name.Remove(fi.Name.IndexOf('.')).ToUpper()));
         }
 
-        public BindableCollection<String> Files { get { return _files; } }
+        public BindableCollection<String> Files
+        {
+            get { return _files; }
+        }
 
         public String BindingContent
         {
@@ -66,8 +70,8 @@ namespace PracticumEmailer.Ui.ViewModels
                     Path.Combine(
                         Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                         string.Format("templates-{0}.zip", DateTime.Now.ToFileTime())),
-                        CompressionLevel.Optimal,
-                        true);
+                    CompressionLevel.Optimal,
+                    true);
             }
         }
 
@@ -75,7 +79,7 @@ namespace PracticumEmailer.Ui.ViewModels
         {
             OpenFileResult<FileInfo> openFileResult =
                 OpenFileResult.OneFile("Please file to import.")
-                .FilterFiles("Zip Files (*.zip)|*.zip");
+                    .FilterFiles("Zip Files (*.zip)|*.zip");
 
             openFileResult.Completed += (sender, args) =>
             {

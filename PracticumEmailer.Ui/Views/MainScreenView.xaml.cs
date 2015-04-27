@@ -3,7 +3,7 @@
 namespace PracticumEmailer.Ui.Views
 {
     /// <summary>
-    /// Interaction logic for MainScreenView.xaml
+    ///     Interaction logic for MainScreenView.xaml
     /// </summary>
     public partial class MainScreenView : UserControl
     {

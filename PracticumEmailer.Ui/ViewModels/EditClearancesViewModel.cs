@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using Newtonsoft.Json;
+using PracticumEmailer.Domain;
+using PracticumEmailer.Ui.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Caliburn.Micro;
-using Newtonsoft.Json;
-using PracticumEmailer.Domain;
-using PracticumEmailer.Ui.Properties;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
@@ -30,6 +30,19 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public BindableCollection<CourseViewModel> Courses { get; set; }
 
+        public CourseViewModel CurrentItem
+        {
+            get
+            {
+                return _currentItem;
+            }
+            set
+            {
+                _currentItem = value;
+                NotifyOfPropertyChange(() => CurrentItem);
+            }
+        }
+
         public void SaveCourses()
         {
             List<Course> courses =
@@ -45,19 +58,9 @@ namespace PracticumEmailer.Ui.ViewModels
             CurrentItem = Courses.Last();
         }
 
-        public CourseViewModel CurrentItem
-        {
-            get { return _currentItem; }
-            set
-            {
-                _currentItem = value;
-                NotifyOfPropertyChange(() => CurrentItem);
-            }
-        }
-
         private void SaveCoursesToDisk(List<Course> courses)
         {
-            using (var stream = new FileStream(_courseDataPath, FileMode.OpenOrCreate, FileAccess.Write))
+            var stream = new FileStream(_courseDataPath, FileMode.OpenOrCreate, FileAccess.Write);
             using (var writer = new StreamWriter(stream))
             {
                 writer.Write(JsonConvert.SerializeObject(courses, Formatting.Indented));

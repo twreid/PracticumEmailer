@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Office.Interop.Outlook;
+using PracticumEmailer.Interfaces;
+using PracticumEmailer.Interfaces.Attributes;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
-using Microsoft.Office.Interop.Outlook;
-using PracticumEmailer.Interfaces;
-using PracticumEmailer.Interfaces.Attributes;
 using Weakly;
 
 namespace PracticumEmailer.Ui.Managers
