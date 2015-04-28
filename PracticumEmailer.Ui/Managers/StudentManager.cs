@@ -110,7 +110,7 @@ namespace PracticumEmailer.Ui.Managers
 
             if (requirements.HasFlag(Requirements.Fcsr))
             {
-                if (!IsCleared(student.FcsrExpiration, cutOff))
+                if (string.IsNullOrEmpty(student.FcsrExpiration) || string.IsNullOrEmpty(student.FcsrExpiration.Trim()))
                 {
                     emailsNeeded |= Requirements.Fcsr;
                 }

@@ -111,12 +111,10 @@ namespace PracticumEmailer.Ui.Managers
 
         private void SetUpTemplate(FileInfo template)
         {
-            if (!Templates.ContainsKey(template.Name))
+            if (Templates.ContainsKey(template.Name)) return;
+            using (var stream = new StreamReader(template.OpenRead()))
             {
-                using (var stream = new StreamReader(template.OpenRead()))
-                {
-                    Templates.Add(template.Name, stream.ReadToEnd());
-                }
+                Templates.Add(template.Name, stream.ReadToEnd());
             }
         }
     }
