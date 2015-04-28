@@ -24,6 +24,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PracticumEmailer.Install", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Util", "PracticumEmailer.Util\PracticumEmailer.Util.csproj", "{735F64B8-D16F-40DF-ABF1-2325BAF560B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticumEmailer.Ui.Test", "PracticumEmailer.Ui.Test\PracticumEmailer.Ui.Test.csproj", "{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,8 +110,23 @@ Global
 		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|x64.ActiveCfg = Release|Any CPU
 		{735F64B8-D16F-40DF-ABF1-2325BAF560B2}.Release|x86.ActiveCfg = Release|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Release|x64.ActiveCfg = Release|Any CPU
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76E7DFF5-0D45-4F82-8C8C-48DDB0D1ECBD} = {C6B239F5-429C-46E4-ACF4-4A8077058674}
 	EndGlobalSection
 EndGlobal
