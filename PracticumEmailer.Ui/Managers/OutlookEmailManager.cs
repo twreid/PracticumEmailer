@@ -28,7 +28,7 @@ namespace PracticumEmailer.Ui.Managers
 
                 if (!to.Resolve())
                 {
-                    throw new InvalidDataException(string.Format("{0} is an invalid email.", message.To.First()));
+                    throw new InvalidDataException($"{message.To.First()} is an invalid email.");
                 }
 
                 outlookMessage.HTMLBody = message.Body;

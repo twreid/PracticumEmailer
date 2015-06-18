@@ -64,38 +64,32 @@ namespace PracticumEmailer.Ui.Managers
 
             if (emailRequirements.HasFlag(Requirements.Fbi))
             {
-                SetUpTemplate(FbiTemplate);
-                sb.Append(Templates[FbiTemplate.Name]);
+                sb.Append(GetTemplate(FbiTemplate));
             }
 
             if (emailRequirements.HasFlag(Requirements.Fcsr))
             {
-                SetUpTemplate(FcsrTemplate);
-                sb.Append(Templates[FcsrTemplate.Name]);
+                sb.Append(GetTemplate(FcsrTemplate));
             }
 
             if (emailRequirements.HasFlag(Requirements.Liab))
             {
-                SetUpTemplate(LiabTemplate);
-                sb.Append(Templates[LiabTemplate.Name]);
+                sb.Append(GetTemplate(LiabTemplate));
             }
 
             if (emailRequirements.HasFlag(Requirements.Tb))
             {
-                SetUpTemplate(TbTemplate);
-                sb.Append(Templates[TbTemplate.Name]);
+                sb.Append(GetTemplate(TbTemplate));
             }
 
-            SetUpTemplate(FooterTemplate);
-
-            sb.Append(Templates[FooterTemplate.Name]);
+            sb.Append(GetTemplate(FooterTemplate));
 
             return sb.ToString();
         }
 
         private string GetHeader(Student student, Requirements requirements)
         {
-            SetUpTemplate(HeaderTemplate);
+            GetTemplate(HeaderTemplate);
 
             var template = new StringBuilder(Templates[HeaderTemplate.Name]);
             template
@@ -109,13 +103,18 @@ namespace PracticumEmailer.Ui.Managers
             return template.ToString();
         }
 
-        private void SetUpTemplate(FileInfo template)
+        private string GetTemplate(FileInfo template)
         {
-            if (Templates.ContainsKey(template.Name)) return;
-            using (var stream = new StreamReader(template.OpenRead()))
+            if (!Templates.ContainsKey(template.Name))
             {
-                Templates.Add(template.Name, stream.ReadToEnd());
+                using (var stream = new StreamReader(template.OpenRead()))
+                {
+                    Templates.Add(template.Name, stream.ReadToEnd());
+                }
             }
+
+            return Templates[template.Name];
+
         }
     }
 }

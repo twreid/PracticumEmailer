@@ -1,10 +1,11 @@
 ﻿using Caliburn.Micro;
 using Caliburn.Micro.Extras;
+using PracticumEmailer.Ui.IResults;
 using PracticumEmailer.Ui.Properties;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 
 namespace PracticumEmailer.Ui.ViewModels
@@ -60,37 +61,29 @@ namespace PracticumEmailer.Ui.ViewModels
             File.WriteAllText(_currentTemplate, _currentContent);
         }
 
-        public void ExportTemplates()
+        public IResult ExportTemplates()
         {
-            var dir = new DirectoryInfo(_templatesPath);
-
-            if (dir.Exists)
-            {
-                ZipFile.CreateFromDirectory(_templatesPath,
-                    Path.Combine(
-                        Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                        string.Format("templates-{0}.zip", DateTime.Now.ToFileTime())),
-                    CompressionLevel.Optimal,
-                    true);
-            }
+            return new ExportResult();
         }
 
-        public IResult<FileInfo> ImportTemplates()
+        public IEnumerable<IResult> ImportTemplates()
         {
             OpenFileResult<FileInfo> openFileResult =
                 OpenFileResult.OneFile("Please file to import.")
                     .FilterFiles("Zip Files (*.zip)|*.zip");
+            string file = string.Empty;
 
             openFileResult.Completed += (sender, args) =>
             {
                 var openFile = sender as OpenFileResult<FileInfo>;
                 if (openFile != null && openFile.Result.Exists)
                 {
-                    Console.WriteLine(openFile.Result.FullName);
+                    file = openFile.Result.FullName;
                 }
             };
 
-            return openFileResult;
+            yield return openFileResult;
+            yield return new ImportResult(file);
         }
     }
 }

@@ -52,10 +52,10 @@ namespace PracticumEmailer.Ui
 
         protected override object GetInstance(Type serviceType, string key)
         {
-            string contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
-            IEnumerable<object> exports = _container.GetExportedValues<object>(contract);
+            var contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
+            var exports = _container.GetExportedValues<object>(contract);
 
-            IList<object> enumerable = exports as IList<object> ?? exports.ToList();
+            var enumerable = exports as IList<object> ?? exports.ToList();
             if (enumerable.Any())
                 return enumerable.First();
 
@@ -78,12 +78,12 @@ namespace PracticumEmailer.Ui
             DisplayRootViewFor<IShell>();
         }
 
-        private void CheckForTemplates()
+        private static void CheckForTemplates()
         {
             if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 Settings.Default.BaseDataDirectory)))
             {
-                String tempFile = Path.GetTempFileName();
+                var tempFile = Path.GetTempFileName();
                 File.WriteAllBytes(tempFile, Resources.PracticumEmailer);
                 ZipFile.ExtractToDirectory(tempFile,
                     Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));

@@ -104,6 +104,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IResults\ExportResult.cs" />
+    <Compile Include="IResults\ImportResult.cs" />
     <Compile Include="Managers\OutlookEmailManager.cs" />
     <Compile Include="Managers\OutlookManagerBase.cs" />
     <Compile Include="Managers\StudentManager.cs" />
