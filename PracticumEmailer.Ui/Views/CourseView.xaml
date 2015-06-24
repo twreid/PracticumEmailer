@@ -1,16 +1,16 @@
 ﻿<UserControl x:Class="PracticumEmailer.Ui.Views.CourseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Orientation="Horizontal">
-        <TextBox x:Name="CourseId" Margin="5,0"></TextBox>
-        <CheckBox x:Name="IsPracticum" Content="Is Practicum?" Margin="5,0"></CheckBox>
-        <CheckBox x:Name="FbiRequired" Content="FBI Required?" Margin="5,0"></CheckBox>
-        <CheckBox x:Name="FcsrRequired" Content="FCSR Required?" Margin="5,0"></CheckBox>
-        <CheckBox x:Name="LiabRequired" Content="LIAB Required?" Margin="5,0"></CheckBox>
-        <CheckBox x:Name="TbRequired" Content="TB Required?" Margin="5,0"></CheckBox>
+        <TextBox x:Name="CourseId" Margin="5,0" />
+        <CheckBox x:Name="IsPracticum" Content="Is Practicum?" Margin="5,0" />
+        <CheckBox x:Name="FbiRequired" Content="FBI Required?" Margin="5,0" />
+        <CheckBox x:Name="FcsrRequired" Content="FCSR Required?" Margin="5,0" />
+        <CheckBox x:Name="LiabRequired" Content="LIAB Required?" Margin="5,0" />
+        <CheckBox x:Name="TbRequired" Content="TB Required?" Margin="5,0" />
     </StackPanel>
 </UserControl>

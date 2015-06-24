@@ -1,20 +1,22 @@
-﻿using System;
+﻿using Caliburn.Metro;
+using Caliburn.Metro.Core;
+using Caliburn.Micro;
+using PracticumEmailer.Ui.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.ComponentModel.Composition.Registration;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Windows;
-using Caliburn.Metro;
-using Caliburn.Metro.Core;
-using Caliburn.Micro;
 
 namespace PracticumEmailer.Ui
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
+    [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
     public class MefBootstrapper : CaliburnMetroCompositionBootstrapper<IShell>
     {
         private CompositionContainer _container;
@@ -50,8 +52,8 @@ namespace PracticumEmailer.Ui
 
         protected override object GetInstance(Type serviceType, string key)
         {
-            string contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
-            IEnumerable<object> exports = _container.GetExportedValues<object>(contract);
+            var contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
+            var exports = _container.GetExportedValues<object>(contract);
 
             var enumerable = exports as IList<object> ?? exports.ToList();
             if (enumerable.Any())
@@ -76,14 +78,15 @@ namespace PracticumEmailer.Ui
             DisplayRootViewFor<IShell>();
         }
 
-        private void CheckForTemplates()
+        private static void CheckForTemplates()
         {
-            if(!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                    Properties.Settings.Default.BaseDataDirectory)))
+            if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                Settings.Default.BaseDataDirectory)))
             {
-                String tempFile = Path.GetTempFileName();
-                File.WriteAllBytes(tempFile, Properties.Resources.PracticumEmailer);
-                ZipFile.ExtractToDirectory(tempFile, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+                var tempFile = Path.GetTempFileName();
+                File.WriteAllBytes(tempFile, Resources.PracticumEmailer);
+                ZipFile.ExtractToDirectory(tempFile,
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             }
         }
     }

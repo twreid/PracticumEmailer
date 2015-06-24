@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.Composition;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
+using System.ComponentModel.Composition;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
     [Export(typeof (IShell))]
     public class ShellViewModel : Conductor<Screen>, IShell
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ShellViewModel()
         {
             ShowEmailManager();

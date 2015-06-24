@@ -1,18 +1,21 @@
 ﻿<UserControl x:Class="PracticumEmailer.Ui.Views.EditTemplatesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:htmlEditor="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor"
              xmlns:cal="http://www.caliburnproject.org"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Stretch">
-            <ComboBox x:Name="Files" cal:Message.Attach="[Event SelectionChanged] = [Action OnSelectionChanged(Files.SelectedItem)]" Width="200"></ComboBox>
-            <Button x:Name="Save" Content="Save" Margin="5,0,5,0" Width="90"></Button>
+            <ComboBox x:Name="Files"
+                      cal:Message.Attach="[Event SelectionChanged] = [Action OnSelectionChanged(Files.SelectedItem)]"
+                      Width="200" />
+            <Button x:Name="Save" Content="Save" Margin="5,0,5,0" Width="90" />
+            <Button x:Name="ExportTemplates" Content="Export" Margin="5,0,5,0" Width="90" />
+            <Button x:Name="ImportTemplates" Content="Import" Margin="5,0,5,0" Width="90" />
         </StackPanel>
-        <htmlEditor:HtmlEditor BindingContent="{Binding BindingContent, Mode=TwoWay}"></htmlEditor:HtmlEditor>
-            
+        <htmlEditor:HtmlEditor BindingContent="{Binding BindingContent, Mode=TwoWay}" />
     </DockPanel>
 </UserControl>

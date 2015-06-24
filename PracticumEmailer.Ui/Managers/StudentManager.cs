@@ -1,37 +1,42 @@
-﻿using System;
+﻿using DataAccess;
+using Newtonsoft.Json;
+using PracticumEmailer.Domain;
+using PracticumEmailer.Interfaces;
+using PracticumEmailer.Ui.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using DataAccess;
-using Newtonsoft.Json;
-using PracticumEmailer.Domain;
-using PracticumEmailer.Interfaces;
 
 namespace PracticumEmailer.Ui.Managers
 {
     [Export(typeof (IStudentManager))]
     public class StudentManager : IStudentManager
     {
-        private readonly IDictionary<string, Student> _studentLookup;
-        private readonly IDictionary<string, Course> _courseLookup;
         private readonly string _courseDataPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                Properties.Settings.Default.CourseDataFile);
+                Settings.Default.CourseDataFile);
+
+        private readonly IDictionary<string, Course> _courseLookup;
+        private readonly IDictionary<string, Student> _studentLookup;
 
         public StudentManager()
         {
             _studentLookup = new Dictionary<string, Student>();
-            _courseLookup = JsonConvert.DeserializeObject<List<Course>>(File.ReadAllText(_courseDataPath, Encoding.UTF8)).ToDictionary(cl => cl.CourseId);
+            _courseLookup =
+                JsonConvert.DeserializeObject<List<Course>>(File.ReadAllText(_courseDataPath, Encoding.UTF8))
+                    .ToDictionary(cl => cl.CourseId);
         }
 
         public IEnumerable<Student> LoadAll(string file)
         {
-            var studentData = DataTable.New.ReadLazy(new FileStream(file, FileMode.Open, FileAccess.Read)).Rows.Select(GetStudent);
+            IEnumerable<Student> studentData =
+                DataTable.New.ReadLazy(new FileStream(file, FileMode.Open, FileAccess.Read)).Rows.Select(GetStudent);
 
-            foreach (var student in studentData.Where(s => !s.Major.Contains("Excercise & Mov")))
+            foreach (Student student in studentData.Where(s => !s.Major.Contains("Excercise & Mov")))
             {
                 if (_studentLookup.ContainsKey(student.MNumber))
                 {
@@ -47,7 +52,6 @@ namespace PracticumEmailer.Ui.Managers
             }
 
             return _studentLookup.Values;
-
         }
 
         public Requirements DetermineRequirements(IEnumerable<string> courses)
@@ -96,7 +100,9 @@ namespace PracticumEmailer.Ui.Managers
 
             if (requirements.HasFlag(Requirements.Fbi))
             {
-                if (!student.FbiExpiration.Split(',').Aggregate(false, (current, date) => current || IsCleared(date, cutOff)))
+                if (
+                    !student.FbiExpiration.Split(',')
+                        .Aggregate(false, (current, date) => current || IsCleared(date, cutOff)))
                 {
                     emailsNeeded |= Requirements.Fbi;
                 }

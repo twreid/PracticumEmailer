@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using Caliburn.Micro.Extras;
+using PracticumEmailer.Domain;
+using PracticumEmailer.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Windows.Controls;
-using Caliburn.Micro;
-using Caliburn.Micro.Extras;
-using PracticumEmailer.Domain;
-using PracticumEmailer.Interfaces;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
@@ -34,7 +34,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public override string DisplayName
         {
-            get { return _displayName; }
+            get
+            {
+                return _displayName;
+            }
             set
             {
                 _displayName = value;
@@ -44,7 +47,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public string DataFile
         {
-            get { return _dataFile; }
+            get
+            {
+                return _dataFile;
+            }
             set
             {
                 _dataFile = value;
@@ -54,7 +60,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public DateTime CutOff
         {
-            get { return _cutOff; }
+            get
+            {
+                return _cutOff;
+            }
             set
             {
                 _cutOff = value;
@@ -69,7 +78,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public EmailHandler SelectedEmailHandler
         {
-            get { return _selectedEmailHandler; }
+            get
+            {
+                return _selectedEmailHandler;
+            }
             set
             {
                 _selectedEmailHandler = value;
@@ -80,7 +92,8 @@ namespace PracticumEmailer.Ui.ViewModels
         public OpenFileResult<FileInfo> OpenFile()
         {
             OpenFileResult<FileInfo> openFileResult =
-                OpenFileResult.OneFile("Please Choose the data File.").FilterFiles("CSV Files (*.csv)|*.csv");
+                OpenFileResult.OneFile("Please Choose the data File.")
+                    .FilterFiles("CSV Files (*.csv)|*.csv");
             openFileResult.Completed += (sender, args) =>
             {
                 var openFile = sender as OpenFileResult<FileInfo>;

@@ -26,7 +26,6 @@ namespace PracticumEmailer.Domain
 
         public string FbiExpiration { get; set; }
 
-        public ISet<String> Courses { get; set; } 
-
+        public ISet<String> Courses { get; set; }
     }
 }

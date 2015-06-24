@@ -1,6 +1,6 @@
-﻿using System;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using PracticumEmailer.Domain;
+using System;
 
 namespace PracticumEmailer.Ui.ViewModels
 {
@@ -15,7 +15,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public String CourseId
         {
-            get { return _course.CourseId; }
+            get
+            {
+                return _course.CourseId;
+            }
             set
             {
                 _course.CourseId = value;
@@ -25,7 +28,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public bool IsPracticum
         {
-            get { return _course.IsPracticum; }
+            get
+            {
+                return _course.IsPracticum;
+            }
             set
             {
                 _course.IsPracticum = value;
@@ -35,7 +41,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public bool FbiRequired
         {
-            get { return _course.FbiRequired; }
+            get
+            {
+                return _course.FbiRequired;
+            }
             set
             {
                 _course.FbiRequired = value;
@@ -45,7 +54,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public bool FcsrRequired
         {
-            get { return _course.FcsrRequired; }
+            get
+            {
+                return _course.FcsrRequired;
+            }
             set
             {
                 _course.FcsrRequired = value;
@@ -55,7 +67,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public bool LiabRequired
         {
-            get { return _course.LiabRequired; }
+            get
+            {
+                return _course.LiabRequired;
+            }
             set
             {
                 _course.LiabRequired = value;
@@ -65,7 +80,10 @@ namespace PracticumEmailer.Ui.ViewModels
 
         public bool TbRequired
         {
-            get { return _course.TbRequired; }
+            get
+            {
+                return _course.TbRequired;
+            }
             set
             {
                 _course.TbRequired = value;

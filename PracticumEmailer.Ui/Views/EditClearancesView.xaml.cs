@@ -3,7 +3,7 @@
 namespace PracticumEmailer.Ui.Views
 {
     /// <summary>
-    /// Interaction logic for EditClearancesView.xaml
+    ///     Interaction logic for EditClearancesView.xaml
     /// </summary>
     public partial class EditClearancesView : UserControl
     {

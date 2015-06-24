@@ -3,7 +3,7 @@
 namespace PracticumEmailer.Ui.Views
 {
     /// <summary>
-    /// Interaction logic for CourseView.xaml
+    ///     Interaction logic for CourseView.xaml
     /// </summary>
     public partial class CourseView : UserControl
     {

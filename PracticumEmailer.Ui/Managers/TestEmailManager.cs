@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Interop.Outlook;
 using PracticumEmailer.Interfaces;
 using PracticumEmailer.Interfaces.Attributes;
+using PracticumEmailer.Ui.Properties;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace PracticumEmailer.Ui.Managers
     [ExportEmailManager(Handler = EmailHandler.Test)]
     public class TestEmailManager : OutlookManagerBase
     {
-        private readonly int _maximumTestEmails = Properties.Settings.Default.MaximumTestEmails;
+        private readonly int _maximumTestEmails = Settings.Default.MaximumTestEmails;
 
         public override void Send(IEnumerable<MailMessage> message)
         {

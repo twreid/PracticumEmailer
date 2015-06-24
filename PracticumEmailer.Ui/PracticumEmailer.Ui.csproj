@@ -74,6 +74,7 @@
     <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -103,6 +104,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IResults\ExportResult.cs" />
+    <Compile Include="IResults\ImportResult.cs" />
     <Compile Include="Managers\OutlookEmailManager.cs" />
     <Compile Include="Managers\OutlookManagerBase.cs" />
     <Compile Include="Managers\StudentManager.cs" />
