@@ -32,12 +32,12 @@ namespace PracticumEmailer.Ui.ViewModels
                     info.EnumerateFiles("*.html").Select(fi => fi.Name.Remove(fi.Name.IndexOf('.')).ToUpper()));
         }
 
-        public BindableCollection<String> Files
+        public BindableCollection<string> Files
         {
             get { return _files; }
         }
 
-        public String BindingContent
+        public string BindingContent
         {
             get
             {

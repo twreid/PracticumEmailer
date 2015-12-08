@@ -60,11 +60,7 @@ namespace PracticumEmailer.Ui.ViewModels
 
         private void SaveCoursesToDisk(List<Course> courses)
         {
-            var stream = new FileStream(_courseDataPath, FileMode.OpenOrCreate, FileAccess.Write);
-            using (var writer = new StreamWriter(stream))
-            {
-                writer.Write(JsonConvert.SerializeObject(courses, Formatting.Indented));
-            }
+            File.WriteAllText(_courseDataPath, JsonConvert.SerializeObject(courses.ToArray(), Formatting.Indented));
         }
     }
 }

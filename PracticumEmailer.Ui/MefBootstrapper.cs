@@ -13,6 +13,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace PracticumEmailer.Ui
 {
@@ -76,6 +77,18 @@ namespace PracticumEmailer.Ui
         {
             CheckForTemplates();
             DisplayRootViewFor<IShell>();
+        }
+
+        protected override void OnUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            base.OnUnhandledException(sender, e);
+
+            using (StreamWriter writer = new StreamWriter(File.Create("FATAL_LOG.log")))
+            {
+                writer.WriteLine(sender.ToString());
+                writer.WriteLine(e.Exception.ToString());
+                writer.WriteLine(e.Exception.StackTrace);
+            }
         }
 
         private static void CheckForTemplates()

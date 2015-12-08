@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using Caliburn.Micro;
+using DataAccess;
 using Newtonsoft.Json;
 using PracticumEmailer.Domain;
 using PracticumEmailer.Interfaces;
@@ -16,6 +17,8 @@ namespace PracticumEmailer.Ui.Managers
     [Export(typeof (IStudentManager))]
     public class StudentManager : IStudentManager
     {
+        private static readonly ILog LOG = LogManager.GetLog(typeof(StudentManager));
+
         private readonly string _courseDataPath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 Settings.Default.CourseDataFile);
@@ -26,9 +29,22 @@ namespace PracticumEmailer.Ui.Managers
         public StudentManager()
         {
             _studentLookup = new Dictionary<string, Student>();
-            _courseLookup =
+            
+            try
+            {
+                _courseLookup =
                 JsonConvert.DeserializeObject<List<Course>>(File.ReadAllText(_courseDataPath, Encoding.UTF8))
                     .ToDictionary(cl => cl.CourseId);
+            }
+            catch(JsonReaderException jre)
+            {
+                LOG.Error(jre);
+                cleanClearanceData();
+                _courseLookup =
+                JsonConvert.DeserializeObject<List<Course>>(File.ReadAllText(_courseDataPath, Encoding.UTF8))
+                    .ToDictionary(cl => cl.CourseId);
+            }
+            
         }
 
         public IEnumerable<Student> LoadAll(string file)
@@ -176,6 +192,17 @@ namespace PracticumEmailer.Ui.Managers
             }
 
             return true;
+        }
+
+        private void cleanClearanceData()
+        {
+            string data = File.ReadAllText(_courseDataPath);
+
+
+            data = data.Remove(data.IndexOf(']') + 1);
+            LOG.Info("{0}", data);
+
+            File.WriteAllText(_courseDataPath, data);
         }
     }
 }
