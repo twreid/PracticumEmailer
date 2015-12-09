@@ -2,14 +2,13 @@
 
 namespace PracticumEmailer.Domain
 {
-    [Flags]
     public enum Requirements : byte
     {
-        None = 0x00,
-        Fbi = 0x01,
-        Fcsr = 0x02,
-        Liab = 0x04,
-        Tb = 0x08,
-        Practicum = 0x16
+        None = 0,
+        Fbi = 0x1,
+        Fcsr = 0x2,
+        Liab = 0x4,
+        Tb = 0x8,
+        Practicum = 0x10,
     }
 }
